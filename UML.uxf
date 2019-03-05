@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>190</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Plateau
+--
+- listeCases : std::vector&lt;Case&gt;
+- de1 : Des
+- de2 : Des
+- deck : Deck
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>370</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>/Case/
+--
+- angle : int
+- x : int
+- y : int
+- nom::String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>40</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Joueur
+--
+- argent : int
+- listeProprietes : std::vector&lt;Case&gt;
+--
+#Operation(i: int): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>0</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Jeu
+--
+
+--
++ main()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>600</y>
+      <w>280</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>CasePropriete
+--
+_- LONGUEUR : int_
+_- LARGEUR : int_
+- prix : std::vector&lt;int&gt;
+- loyer : std::vector&lt;int&gt;
+- nbMaisons : int
+- isFestival : bool
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>600</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>/CaseAngle/
+--
+_- LONGUEUR : int_
+_- LARGEUR : int_
+--
+Prison, Depart, Tour du monde,
+Championnat du Monde</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>470</y>
+      <w>30</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>600</y>
+      <w>280</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>CaseChance
+--
+_- LONGUEUR : int_
+_- LARGEUR : int_
+--
++ tirerCarte(deck : Deck)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>830</x>
+      <y>470</y>
+      <w>290</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;270.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>470</y>
+      <w>260</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>190</y>
+      <w>280</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Des
+--
+- aleaNb : int
+--
++ lancer() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>190</y>
+      <w>310</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Deck
+--
+- listeCartes : std::vector&lt;CartesChance&gt;
+--
++ melanger() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>370</y>
+      <w>310</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>/CartesChance/
+--
+- msg : std::String
+--
++ effet()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>600</y>
+      <w>280</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>CaseBouffe
+--
+_- LONGUEUR : int_
+_- LARGEUR : int_
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>460</y>
+      <w>510</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>490.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>290</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+</diagram>
