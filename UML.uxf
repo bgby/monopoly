@@ -4,44 +4,42 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>620</x>
-      <y>190</y>
+      <x>780</x>
+      <y>280</y>
       <w>280</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>Plateau
 --
 - listeCases : std::vector&lt;Case&gt;
-- de1 : Des
-- de2 : Des
 - deck : Deck
 --
+- affiche(a : affichage)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
-      <y>370</y>
+      <x>720</x>
+      <y>550</y>
       <w>280</w>
-      <h>110</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>/Case/
 --
-- angle : int
-- x : int
-- y : int
-- nom::String
+- nom : String
+- visiteur : Joueur
 --
+- affiche(a : Affichage) : void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>970</x>
-      <y>40</y>
+      <x>1150</x>
+      <y>80</y>
       <w>280</w>
       <h>110</h>
     </coordinates>
@@ -49,50 +47,56 @@
 --
 - argent : int
 - listeProprietes : std::vector&lt;Case&gt;
---
-#Operation(i: int): int</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>610</x>
-      <y>0</y>
-      <w>280</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>Jeu
+- caseactuel : int
+- nom : String
 --
 
---
-+ main()</panel_attributes>
++ajoutCase(c : Case) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
-      <y>600</y>
+      <x>450</x>
+      <y>0</y>
       <w>280</w>
-      <h>150</h>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Affichage
+--
+- Jeu
+--
++ affiche(cb : CaseBouffe) : void
++ affiche(cb : CaseChance) : void
++ affiche(cb : CasePropriete) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>780</y>
+      <w>280</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>CasePropriete
 --
 _- LONGUEUR : int_
 _- LARGEUR : int_
+- proprietaire : Joueur
 - prix : std::vector&lt;int&gt;
 - loyer : std::vector&lt;int&gt;
 - nbMaisons : int
 - isFestival : bool
 --
-</panel_attributes>
+- affiche(a : Affichage) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>960</x>
-      <y>600</y>
+      <x>1100</x>
+      <y>780</y>
       <w>280</w>
       <h>110</h>
     </coordinates>
@@ -108,19 +112,19 @@ Championnat du Monde</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>470</y>
-      <w>30</w>
-      <h>150</h>
+      <x>850</x>
+      <y>700</y>
+      <w>80</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>600</y>
+      <x>450</x>
+      <y>760</y>
       <w>280</w>
       <h>150</h>
     </coordinates>
@@ -129,36 +133,37 @@ Championnat du Monde</panel_attributes>
 _- LONGUEUR : int_
 _- LARGEUR : int_
 --
-+ tirerCarte(deck : Deck)</panel_attributes>
++ tirerCarte(deck : Deck)
+- affiche(a : Affichage) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
-      <y>470</y>
-      <w>290</w>
-      <h>150</h>
+      <x>940</x>
+      <y>700</y>
+      <w>320</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;270.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;300.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
-      <y>470</y>
-      <w>260</w>
-      <h>150</h>
+      <x>570</x>
+      <y>700</y>
+      <w>220</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>240.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>200.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>970</x>
-      <y>190</y>
+      <x>1130</x>
+      <y>270</y>
       <w>280</w>
       <h>110</h>
     </coordinates>
@@ -172,8 +177,8 @@ _- LARGEUR : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
-      <y>190</y>
+      <x>330</x>
+      <y>270</y>
       <w>310</w>
       <h>110</h>
     </coordinates>
@@ -187,8 +192,8 @@ _- LARGEUR : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>160</x>
-      <y>370</y>
+      <x>320</x>
+      <y>450</y>
       <w>310</w>
       <h>110</h>
     </coordinates>
@@ -202,8 +207,8 @@ _- LARGEUR : int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>600</y>
+      <x>130</x>
+      <y>750</y>
       <w>280</w>
       <h>150</h>
     </coordinates>
@@ -211,26 +216,132 @@ _- LARGEUR : int_
 --
 _- LONGUEUR : int_
 _- LARGEUR : int_
+- proprietaire : Joueur
 --
+- prix : std::vector&lt;int&gt;
+- loyer : std::vector&lt;int&gt;
+- affiche(a : Affichage) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>640</y>
+      <w>490</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>470.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>380</y>
+      <w>80</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>60</y>
+      <w>280</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Jeu
+--
+- plateauDeJeu : Plateau
+- listeJoueur: std::vector&lt;Joueur&gt;
+- de1 : Des
+- de2 : Des
+--
++ tour() : void
++ main()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>210</y>
+      <w>40</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1080</x>
+      <y>190</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=2
+</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1100</x>
+      <y>490</y>
+      <w>280</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>/Affichable/
+--
+- angle : int
+- x : int
+- y : int
+--
+- affiche(a : Affichage) : void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
-      <y>460</y>
-      <w>510</w>
-      <h>160</h>
+      <x>990</x>
+      <y>590</y>
+      <w>130</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>490.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
-      <y>290</y>
+      <x>630</x>
+      <y>300</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>370</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
