@@ -1,17 +1,26 @@
 #ifndef FENETRE
 #define FENETRE
 
-#include <gtkmm/main.h>
 #include <gtkmm/window.h>
-#include <gtkmm/button.h>
-#include <gtkmm/stock.h>
+#include <gtkmm/box.h>
+
+#include "ConteneurBoutons.hpp"
+#include "ConteneurInfosGen.hpp"
 
 class Fenetre : public Gtk::Window{
 	public:
 		Fenetre();
 
 	private:
-		Gtk::Button bouton;
+		//Boutons
+		ConteneurBoutons conteneurBoutons;
+		ConteneurInfosGen conteneurInfosGen;
+		//Voir pour les conteneurs de joueurs
+
+		//Conteneurs
+		Gtk::VBox vboxRight;
+		Gtk::VBox vboxLeft;//contient conteneurBoutons_conteneurInfosGen
+		Gtk::HBox hboxMain;//contient vboxLeft|Plateau|vboxRight
 	
 };
 
