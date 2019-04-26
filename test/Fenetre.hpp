@@ -6,6 +6,7 @@
 
 #include "ConteneurBoutons.hpp"
 #include "ConteneurInfosGen.hpp"
+#include "ConteneurPlateau.hpp"
 
 class Fenetre : public Gtk::Window{
 	public:
@@ -15,6 +16,7 @@ class Fenetre : public Gtk::Window{
 		//Boutons
 		ConteneurBoutons conteneurBoutons;
 		ConteneurInfosGen conteneurInfosGen;
+		ConteneurPlateau conteneurPlateau;
 		//Voir pour les conteneurs de joueurs
 
 		//Conteneurs

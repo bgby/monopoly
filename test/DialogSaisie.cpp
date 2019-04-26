@@ -1,10 +1,8 @@
 #include "DialogSaisie.hpp"
 
-DialogSaisie::DialogSaisie(std::string msg){
-	//set_title(msg);
+DialogSaisie::DialogSaisie(std::string msg, Gtk::Window& parent) : Gtk::Dialog(msg, parent){
 	vbox = Gtk::VBox(true, 10);
 	texte = Gtk::Label(msg);
-	//bufferSaisie = Gtk::EntryBuffer();
 	champSaisie = Gtk::Entry();
 	boutonValider = Gtk::Button(Gtk::Stock::OK);
 
@@ -12,7 +10,9 @@ DialogSaisie::DialogSaisie(std::string msg){
 	vbox.pack_start(champSaisie);
 	vbox.pack_start(boutonValider);
 
-	add(vbox);
+	//add(vbox);
 
 	show_all();
+
+	//Signaux
 }

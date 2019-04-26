@@ -6,6 +6,9 @@ Accueil.o: Accueil.cpp
 DialogSaisie.o: DialogSaisie.cpp
 	g++ -o DialogSaisie.o -c DialogSaisie.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
+ConteneurPlateau.o: ConteneurPlateau.cpp
+	g++ -o ConteneurPlateau.o -c ConteneurPlateau.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
+
 ConteneurInfosGen.o: ConteneurInfosGen.cpp
 	g++ -o ConteneurInfosGen.o -c ConteneurInfosGen.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
@@ -18,8 +21,8 @@ Fenetre.o: Fenetre.cpp
 main.o: main.cpp
 	g++ -o main.o -c main.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
-main: main.o Fenetre.o ConteneurBoutons.o ConteneurInfosGen.o DialogSaisie.o Accueil.o
-	g++ -o monopoly main.o Fenetre.o ConteneurBoutons.o ConteneurInfosGen.o DialogSaisie.o Accueil.o `pkg-config gtkmm-3.0 --cflags --libs`
+main: main.o Fenetre.o ConteneurBoutons.o ConteneurInfosGen.o DialogSaisie.o Accueil.o ConteneurPlateau.o
+	g++ -o monopoly main.o Fenetre.o ConteneurBoutons.o ConteneurInfosGen.o ConteneurPlateau.o DialogSaisie.o Accueil.o `pkg-config gtkmm-3.0 --cflags --libs`
 
 clean:
-	rm -rf *.o main
+	rm -rf *.o monopoly

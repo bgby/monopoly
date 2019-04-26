@@ -5,9 +5,12 @@
 
 int main(int argc, char* argv[]) {
     Gtk::Main app(argc, argv);
-    Accueil accueil;
-    Gtk::Main::run(accueil);
-    Fenetre fenetre;
+
+    Accueil accueil = Accueil();
+    //Gtk::Main::run(accueil);
+
+    Fenetre fenetre = Fenetre();
     Gtk::Main::run(fenetre);
+
     return 0;
 }
