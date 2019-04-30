@@ -6,7 +6,7 @@
 int main(int argc, char* argv[]) {
     Gtk::Main app(argc, argv);
 
-    Accueil accueil = Accueil();
+    //Accueil accueil = Accueil();
     //Gtk::Main::run(accueil);
 
     Fenetre fenetre = Fenetre();

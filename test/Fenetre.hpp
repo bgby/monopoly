@@ -7,6 +7,7 @@
 #include "ConteneurBoutons.hpp"
 #include "ConteneurInfosGen.hpp"
 #include "ConteneurPlateau.hpp"
+#include "ConteneurInfosJoueur.hpp"
 
 class Fenetre : public Gtk::Window{
 	public:
@@ -17,7 +18,10 @@ class Fenetre : public Gtk::Window{
 		ConteneurBoutons conteneurBoutons;
 		ConteneurInfosGen conteneurInfosGen;
 		ConteneurPlateau conteneurPlateau;
+		ConteneurInfosJoueur testConteneur;
 		//Voir pour les conteneurs de joueurs
+
+		Joueur joueurTest;
 
 		//Conteneurs
 		Gtk::VBox vboxRight;
