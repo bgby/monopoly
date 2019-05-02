@@ -6,8 +6,8 @@ Accueil.o: Accueil.cpp
 DialogSaisie.o: DialogSaisie.cpp
 	g++ -o DialogSaisie.o -c DialogSaisie.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
-ConteneurPlateau.o: ConteneurPlateau.cpp
-	g++ -o ConteneurPlateau.o -c ConteneurPlateau.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
+Plateau.o: Plateau.cpp
+	g++ -o Plateau.o -c Plateau.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
 ConteneurInfosGen.o: ConteneurInfosGen.cpp
 	g++ -o ConteneurInfosGen.o -c ConteneurInfosGen.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
@@ -18,14 +18,14 @@ ConteneurBoutons.o: ConteneurBoutons.cpp
 Joueur.o: Joueur.cpp
 	g++ -o Joueur.o -c Joueur.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
-Fenetre.o: Fenetre.cpp
-	g++ -o Fenetre.o -c Fenetre.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
+Jeu.o: Jeu.cpp
+	g++ -o Jeu.o -c Jeu.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
 main.o: main.cpp
 	g++ -o main.o -c main.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
-main: main.o Fenetre.o ConteneurBoutons.o ConteneurInfosGen.o DialogSaisie.o Accueil.o ConteneurPlateau.o Joueur.o
-	g++ -o monopoly main.o Fenetre.o ConteneurBoutons.o ConteneurInfosGen.o ConteneurPlateau.o DialogSaisie.o Joueur.o Accueil.o `pkg-config gtkmm-3.0 --cflags --libs`
+main: main.o Jeu.o ConteneurBoutons.o ConteneurInfosGen.o DialogSaisie.o Accueil.o Plateau.o Joueur.o
+	g++ -o monopoly main.o Jeu.o ConteneurBoutons.o ConteneurInfosGen.o Plateau.o DialogSaisie.o Joueur.o Accueil.o `pkg-config gtkmm-3.0 --cflags --libs`
 
 clean:
 	rm -rf *.o monopoly

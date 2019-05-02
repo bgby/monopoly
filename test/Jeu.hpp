@@ -1,5 +1,5 @@
-#ifndef FENETRE
-#define FENETRE
+#ifndef JEU
+#define JEU
 
 #include <vector>
 
@@ -8,21 +8,21 @@
 
 #include "ConteneurBoutons.hpp"
 #include "ConteneurInfosGen.hpp"
-#include "ConteneurPlateau.hpp"
+#include "Plateau.hpp"
 #include "Joueur.hpp"
 
-class Fenetre : public Gtk::Window{
+class Jeu : public Gtk::Window{
 
 	public:
-		Fenetre();
-		Fenetre(int nbJoueurs);
+		Jeu();
+		Jeu(int nbJoueurs);
 
 	private:
 		//Boutons
 		ConteneurBoutons conteneurBoutons;
 
 		ConteneurInfosGen conteneurInfosGen;
-		ConteneurPlateau conteneurPlateau;
+		Plateau plateau;
 		//ConteneurInfosJoueur testConteneur;
 		//Voir pour les conteneurs de joueurs
 
