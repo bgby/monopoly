@@ -10,7 +10,7 @@ Fenetre::Fenetre(){
     conteneurBoutons = ConteneurBoutons();
     conteneurInfosGen = ConteneurInfosGen();
 
-    joueurTest = Joueur("Toto");
+    //joueurTest = Joueur("Toto");
     //testConteneur = ConteneurInfosJoueur(joueurTest);
 
     hboxMain = Gtk::HBox(false, 10);
@@ -20,7 +20,7 @@ Fenetre::Fenetre(){
     vboxLeft.pack_start(conteneurBoutons);
     vboxLeft.pack_start(conteneurInfosGen);
 
-    vboxRight.pack_start(joueurTest);
+    //vboxRight.pack_start(joueurTest);
 
     hboxMain.pack_start(vboxLeft);
     hboxMain.pack_start(conteneurPlateau);
@@ -29,4 +29,11 @@ Fenetre::Fenetre(){
     add(hboxMain);
 
     show_all();
+}
+
+Fenetre::Fenetre(int nbJoueurs) : Fenetre::Fenetre(){
+    for(int i = 0; i < nbJoueurs; i++){
+        tabJoueurs.push_back(Joueur());
+        vboxRight.pack_start(tabJoueurs[i]);
+    }
 }

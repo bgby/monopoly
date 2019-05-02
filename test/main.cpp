@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     //Accueil accueil = Accueil();
     //Gtk::Main::run(accueil);
 
-    Fenetre fenetre = Fenetre();
+    Fenetre fenetre = Fenetre(4);
     Gtk::Main::run(fenetre);
 
     return 0;
