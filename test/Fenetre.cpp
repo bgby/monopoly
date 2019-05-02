@@ -11,7 +11,7 @@ Fenetre::Fenetre(){
     conteneurInfosGen = ConteneurInfosGen();
 
     joueurTest = Joueur("Toto");
-    testConteneur = ConteneurInfosJoueur(joueurTest);
+    //testConteneur = ConteneurInfosJoueur(joueurTest);
 
     hboxMain = Gtk::HBox(false, 10);
     vboxRight = Gtk::VBox(true, 10);
@@ -20,7 +20,7 @@ Fenetre::Fenetre(){
     vboxLeft.pack_start(conteneurBoutons);
     vboxLeft.pack_start(conteneurInfosGen);
 
-    vboxRight.pack_start(testConteneur);
+    vboxRight.pack_start(joueurTest);
 
     hboxMain.pack_start(vboxLeft);
     hboxMain.pack_start(conteneurPlateau);
