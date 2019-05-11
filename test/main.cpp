@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     //Accueil accueil = Accueil();
     //Gtk::Main::run(accueil);
 
-    Jeu jeu = Jeu(4);
+    Jeu jeu(4);
     Gtk::Main::run(jeu);
 
     return 0;
