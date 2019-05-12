@@ -11,7 +11,10 @@ class Plateau : public Gtk::DrawingArea{
 
 	protected:
 		bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
-	
+
+	/*private:
+		std::std::vector<Case> listeCases;
+	*/
 };
 
 #endif

@@ -1,0 +1,17 @@
+ #include "CasePropriete.hpp"
+
+CasePropriete::CasePropriete(int& _prix) : Case::Case(){
+	proprietaire = NULL;
+	prix = _prix;
+	nbMaisons = 0;
+	isFestival = false;
+}
+
+int CasePropriete::getLoyer(){
+	if(proprietaire == NULL)
+		return 0;
+	else if(isFestival)
+		return (prix + nbMaisons*prix/4);
+	else
+		return (prix + nbMaisons*prix/4)/4;
+}
