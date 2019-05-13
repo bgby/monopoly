@@ -6,8 +6,9 @@
 class Case {
 	public:
 		Case();
-		void ajouterVisiteur(const Joueur& j);
-		void retirerVisiteur(const Joueur& j);
+		void ajouterVisiteur(Joueur *j);
+		void retirerVisiteur(Joueur *j);
+		virtual void effet(Joueur *j)=0;
 
 	private:
 		int id;
