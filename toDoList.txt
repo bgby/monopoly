@@ -1,0 +1,13 @@
+A FAIRE:
+
+	- Créer les signaux des boutons et les associer aux méthodes
+	- Créer la méthode de lancement des dés
+	- Créer une méthode avance (vérifier si la personne n'est pas en prison)
+	- Réaliser les méthodes effet() de chaque type de case
+	- Gérer la détection du gagnant ou la faillite (certainement via des signaux)
+
+A FAIRE (Briac):
+
+
+
+A FAIRE (Théo):
