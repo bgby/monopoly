@@ -2,13 +2,14 @@
 #define CASE
 
 #include "Joueur.hpp"
+class Joueur;
 
-class Case {
+class Case{
 	public:
 		Case();
 		void ajouterVisiteur(Joueur *j);
 		void retirerVisiteur(Joueur *j);
-		virtual void effet(Joueur *j)=0;
+		virtual void effet(Joueur *j) = 0;
 
 	private:
 		int id;
