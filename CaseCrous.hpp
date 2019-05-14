@@ -9,6 +9,10 @@ class CaseCrous : public Case{
 		CaseCrous();
 		int getLoyer(){return prix/4;};
 		int getPrix(){return prix;};
+		void setProprietaire(Joueur *j){proprietaire = j;};
+		Joueur* getProprietaire(){return proprietaire;};
+
+		void effet(Joueur *j);
 
 	private:
 		int prix;
