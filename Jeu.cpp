@@ -1,6 +1,8 @@
 #include "Jeu.hpp"
 
 Jeu::Jeu(){
+	
+	//Option de la fenetre
 	set_title("Robopoly");
     set_resizable(false);
 	set_icon_from_file("medias/mrMonopoly.png");
