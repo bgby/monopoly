@@ -32,6 +32,8 @@ class Joueur : public Gtk::Frame{
 		int lancerDe(De newDe);
 		void jouerTour(Plateau plateauMonopoly);
 		
+		void payer(Joueur& proprietaire, int argent); //retirer l'argent au joueur this et ajouter cette argent au propriétaire 
+		
 
 
 
