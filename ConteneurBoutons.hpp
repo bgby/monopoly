@@ -8,6 +8,7 @@ class ConteneurBoutons: public Gtk::VButtonBox{
 	public:
 		ConteneurBoutons();
 		//~ConteneurBoutons();
+		Gtk::Button& getBoutonLancerDes(){return boutonLancerDes;};
 	private:
 		Gtk::Button boutonLancerDes;
 		Gtk::Button boutonAcheter;

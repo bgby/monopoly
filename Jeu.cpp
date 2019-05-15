@@ -11,7 +11,7 @@ Jeu::Jeu(){
     set_border_width(10);
 
     conteneurBoutons = ConteneurBoutons();
-    //conteneurBoutons.boutonLancerDes.signal_clicked().connect([this]() { this->jouerTour(); });
+    conteneurBoutons.getBoutonLancerDes().signal_clicked().connect([this]() { this->lancerDe(); });
 
 
     conteneurInfosGen = ConteneurInfosGen();
@@ -42,6 +42,9 @@ int Jeu::lancerDe(){
 		int val = de1.getVal();
 		de2.lancer();
 		val += de2.getVal();
+        std::cout << val << std::endl;
+        tabJoueurs[0].perdreArgent(10);
+        std::cout << tabJoueurs[0].getArgent() << std::endl;
 		return val;
 }
 		
