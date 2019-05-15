@@ -8,6 +8,7 @@ class CasePropriete : public Case {
 	public:
 		CasePropriete(int& _prix);
 		int getLoyer();
+		void effet(Joueur *j);
 
 	private:
 		Joueur *proprietaire;
