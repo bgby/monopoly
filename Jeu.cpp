@@ -32,6 +32,15 @@ Jeu::Jeu(){
     show_all();
 }
 
+int Jeu::lancerDe(){
+		de1.lancer();
+		int val = de1.getVal();
+		de2.lancer();
+		val += de2.getVal();
+		return val;
+}
+		
+		
 Jeu::Jeu(int nbJoueurs) : Jeu::Jeu(){
     for(int i = 0; i < nbJoueurs; i++){
         tabJoueurs.push_back(Joueur());

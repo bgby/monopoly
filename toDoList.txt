@@ -12,6 +12,7 @@ DEROULEMENT :
 	- Acueil
 	- Constructeur de Jeu : 
 		- créer le plateau avec les 40 cases
+		- créer les joueurs
 		- crées les 2 dés
 		- Détection du clic sur "lancé dé" -> lance la méthode Jeu.debutTour() :
 			- Vérifie si le mec est en prison
@@ -29,7 +30,7 @@ DEROULEMENT :
 					- Si on achete pas ou en personne 
 						- ne fait rien
 			- clic sur fin de tour lance Jeu.finTour():
-				incrémente le jour pour passé au joueur suivant
+				incrémente le joueur pour passé au joueur suivant
 
 			
 /!\ créer les joeurs qu'une seul fois

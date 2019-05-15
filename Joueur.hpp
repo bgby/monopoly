@@ -5,7 +5,6 @@
 #include <vector>
 
 #include "Case.hpp"
-#include "De.hpp"
 
 #include <gtkmm/frame.h>
 #include <gtkmm/box.h>
@@ -32,9 +31,6 @@ class Joueur : public Gtk::Frame{
 
 		void setNom(std::string newNom){nom = newNom;}
 		std::string getNom() const {return nom;}
-		
-		//Fonctions
-		int lancerDe(De newDe);
 		
 		//Prison
 		bool estEnPrison(){return nbToursPrison > 0;}

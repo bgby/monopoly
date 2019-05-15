@@ -10,12 +10,16 @@
 #include "ConteneurInfosGen.hpp"
 #include "Plateau.hpp"
 #include "Joueur.hpp"
+#include "De.hpp"
+
 
 class Jeu : public Gtk::Window{
 
 	public:
 		Jeu();
 		Jeu(int nbJoueurs);
+		int lancerDe();//Si le joueur veux lancer les dé
+		
 
 	private:
 		//Boutons
@@ -28,6 +32,10 @@ class Jeu : public Gtk::Window{
 
 		//Joueur joueurTest;
 		std::vector<Joueur> tabJoueurs;
+		
+		//2 Dé
+		De de1;
+		De de2;
 
 		//Conteneurs
 		Gtk::VBox vboxRight;

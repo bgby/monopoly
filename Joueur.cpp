@@ -30,12 +30,6 @@ Joueur::Joueur(std::string _nom) : Joueur::Joueur(){
 	set_label(nom);
 }
 
-//Si le joueur veux lancer les dé
-int Joueur::lancerDe(De newDe){
-	newDe.lancer();
-	int val = newDe.getVal();
-	return val;
-}
 
 void Joueur::gagnerArgent(int montant){
 	setArgent(getArgent() + montant);
