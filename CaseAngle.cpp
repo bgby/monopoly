@@ -13,5 +13,14 @@ void CaseAngle::effet(Joueur *j){
 		case 'p':
 			if(!(j->estEnPrison()))
 				j->partEnPrison();
+			break;
+
+		case 's':
+			//A CODER PLUS TARD
+			break;
+
+		case 'a':
+			//A CODER PLUS TARD
+			break;
 	}
 }

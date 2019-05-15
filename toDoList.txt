@@ -9,7 +9,7 @@ A FAIRE:
 
 DEROULEMENT :
 
-	- Acueil
+	- Accueil
 	- Constructeur de Jeu : 
 		- créer le plateau avec les 40 cases
 		- crées les 2 dés
@@ -23,24 +23,24 @@ DEROULEMENT :
 			- regarde la case ou se trouve le joueur et lance case.effet():
 				- si propriété : 
 					- Si pas a lui :
-						- fait payer le loyer au joeur
+						- fait payer le loyer au joueur
 					- Si a personne: 
 						- demande si on veut acheter si clic sur acheter lance Joeur.acheter(Case)
 					- Si on achete pas ou en personne 
 						- ne fait rien
 			- clic sur fin de tour lance Jeu.finTour():
-				incrémente le jour pour passé au joueur suivant
+				incrémente le joueur pour passer au joueur suivant
 
 			
-/!\ créer les joeurs qu'une seul fois
+/!\ créer les joueurs qu'une seule fois
 
 
 A FAIRE (Briac):
 - Cases
 
 A FAIRE (Théo):
-- Class Joeur :
-	- faire des bool pour savoir si a déja jouer etc...
-	- faire la liste des propriété du joueur 
+- Class Joueur :
+	- faire des bool pour savoir si a déja joué etc...
+	- faire la liste des propriétés du joueur 
 - Class Plateau:
-	- faire la liste de case du plateau
+	- faire la liste de cases du plateau

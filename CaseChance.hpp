@@ -9,7 +9,6 @@
 class CaseChance : public Case{
 	public:
 		CaseChance();
-		~CaseChance(){}
 		void tirerCarte();
 		void effet(Joueur *j);
 };
