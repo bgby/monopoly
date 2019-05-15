@@ -10,6 +10,7 @@ class Case{
 		void ajouterVisiteur(Joueur *j);
 		void retirerVisiteur(Joueur *j);
 		virtual void effet(Joueur *j) = 0;
+		int getId() const {return id;}
 
 	private:
 		int id;

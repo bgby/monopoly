@@ -6,29 +6,37 @@
 
 #include "Case.hpp"
 
+#include <list>
+
 #include <gtkmm/frame.h>
 #include <gtkmm/box.h>
 #include <gtkmm/label.h>
 
+class Case;
 
 class Joueur : public Gtk::Frame{
 	public:
+		//Constructeur
 		Joueur();
 		Joueur(std::string _nom);
 		
-		//Getters and Setters
-
 		//Proprietes
 		void setNbProprietes(int newNb){nbProprietes = newNb;}
 		int getNbProprietes() const {return nbProprietes;}
-
+		void ajoutPropriete(Case* casePropr);
+		void suprPropriete(Case* casePropr);
+		
+		//Déplacement
+		void deplacer(int val);
+		void teleporter(int id);
+		
 		//ARGENT
 		void setArgent(int newArgent){argent = newArgent;}
 		int getArgent() const {return argent;}
 		void gagnerArgent(int montant);
 		void perdreArgent(int montant);//VERIFIER QUE LE JOUEUR EST SOLVABLE
 		void payer(Joueur& proprietaire, int argent); //retirer l'argent au joueur this et ajouter cette argent au propriétaire 
-
+		
 		void setNom(std::string newNom){nom = newNom;}
 		std::string getNom() const {return nom;}
 		
@@ -49,7 +57,8 @@ class Joueur : public Gtk::Frame{
 		int argent;
 		int nbProprietes;
 		int caseActuel;
-		int nbToursPrison;
+		std::list<Case*> listCaseJ;
+		int nbToursPrison; //Nombre de tour qui lui reste en prison (0 de bases, passe a 3 sur la case prison)
 		
 
 		//Proprietes graphiques
