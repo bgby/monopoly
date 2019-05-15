@@ -45,6 +45,9 @@ class Joueur : public Gtk::Frame{
 		void partEnPrison(){nbToursPrison = 3;}
 		void decrementerTourPrison(){if(estEnPrison())
 										nbToursPrison--;}
+										
+		//affichage
+		void majAffiche();
 		
 
 

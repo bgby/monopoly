@@ -30,6 +30,25 @@ Joueur::Joueur(std::string _nom) : Joueur::Joueur(){
 	set_label(nom);
 }
 
+void Joueur::majAffiche(){
+
+	vbox.remove(labelArgent);
+	vbox.remove(labelNbProprietes);
+	vbox.remove(labelcaseActuel);
+	
+	labelArgent = Gtk::Label("Argent : " + std::to_string(argent));
+	labelNbProprietes = Gtk::Label("Nombre de propriétés : " + std::to_string(nbProprietes));
+	labelcaseActuel = Gtk::Label("Case actuelle : " + std::to_string(caseActuel));
+
+	vbox.pack_start(labelArgent);
+	vbox.pack_start(labelNbProprietes);
+	vbox.pack_start(labelcaseActuel);
+
+	add(vbox);
+
+	show_all();
+}
+
 //Fonction qui déplace le joueur du nombre de cases passé en paramètre
 //Inclu le fait de passer par la case départ
 void Joueur::deplacer(int val){

@@ -6,6 +6,8 @@
 #include <gtkmm/window.h>
 #include <gtkmm/box.h>
 
+#include "PopUpDe.hpp"
+
 #include "ConteneurBoutons.hpp"
 #include "ConteneurInfosGen.hpp"
 #include "Plateau.hpp"
@@ -19,6 +21,7 @@ class Jeu : public Gtk::Window{
 		Jeu();
 		Jeu(int nbJoueurs);
 		int lancerDe();//Si le joueur veux lancer les dé
+		void afficherPopUpDe();
 		
 
 	private:

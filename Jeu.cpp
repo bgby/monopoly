@@ -44,10 +44,16 @@ int Jeu::lancerDe(){
 		val += de2.getVal();
         std::cout << val << std::endl;
         tabJoueurs[0].perdreArgent(10);
+        tabJoueurs[0].majAffiche();
+        afficherPopUpDe();
         std::cout << tabJoueurs[0].getArgent() << std::endl;
 		return val;
 }
 		
+void Jeu::afficherPopUpDe(){
+	PopUpDe des("Lancer dés", this, " ");
+	des.run();
+}
 		
 Jeu::Jeu(int nbJoueurs) : Jeu::Jeu(){
     for(int i = 0; i < nbJoueurs; i++){
