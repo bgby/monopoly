@@ -5,7 +5,6 @@
 #include <vector>
 
 #include "Case.hpp"
-#include "Plateau.hpp"
 #include "De.hpp"
 
 #include <gtkmm/frame.h>
@@ -30,7 +29,6 @@ class Joueur : public Gtk::Frame{
 		
 		//Fonctions
 		int lancerDe(De newDe);
-		void jouerTour(Plateau plateauMonopoly);
 		
 		void payer(Joueur& proprietaire, int argent); //retirer l'argent au joueur this et ajouter cette argent au propriétaire 
 		

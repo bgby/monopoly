@@ -37,20 +37,3 @@ int Joueur::lancerDe(De newDe){
 }
 
 
-void Joueur::jouerTour(Plateau plateauMonopoly){
-
-	//Si c'est un double le joueur pourra rejouer donc on fait un boucle while
-	int val1 = 0;
-	int val2 = 0;
-	while(val1 == val2){
-		//On lance d'abord les dés
-		val1 = lancerDe(plateauMonopoly.getDe1());
-		val2 = lancerDe(plateauMonopoly.getDe1());
-		
-		//On met a jour la case actuelle
-		caseActuel = (caseActuel + val1 + val2)%40;
-		
-	}
-	
-	
-}

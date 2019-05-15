@@ -1,6 +1,6 @@
  #include "CasePropriete.hpp"
 
-CasePropriete::CasePropriete(int& _prix) : Case::Case(){
+CasePropriete::CasePropriete(int _prix) : Case::Case(){
 	proprietaire = NULL;
 	prix = _prix;
 	nbMaisons = 0;

@@ -6,7 +6,7 @@
 
 class CasePropriete : public Case {
 	public:
-		CasePropriete(int& _prix);
+		CasePropriete(int _prix);
 		int getLoyer();
 
 	private:

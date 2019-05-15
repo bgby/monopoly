@@ -2,6 +2,12 @@
 #define PLATEAU
 
 #include "De.hpp"
+#include "CaseChance.hpp"
+#include "CasePropriete.hpp"
+#include "CaseAngle.hpp"
+#include "CaseFrais.hpp"
+#include "CaseCrous.hpp"
+
 class Case;
 
 #include <gtkmm/drawingarea.h>
@@ -11,18 +17,10 @@ class Case;
 class Plateau : public Gtk::DrawingArea{
 	public:
 		Plateau();
-		De getDe1() const {return de1;}
-		De getDe2() const {return de2;}
 
 	protected:
 		bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
-		De de1;
-		De de2;
 		std::vector<Case*> casesPlateau;
-
-	/*private:
-		std::std::vector<Case> listeCases;
-	*/
 };
 
 #endif

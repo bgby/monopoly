@@ -2,6 +2,55 @@
 
 Plateau::Plateau(){
 	set_size_request(800,800);
+	//Création des 40 cases
+	
+	//premiere rangée du bas 
+	casesPlateau.push_back(new CaseAngle('d')); //case départ
+	casesPlateau.push_back(new CasePropriete(15)); //65-66 RC05
+	casesPlateau.push_back(new CaseFrais(70)); //Frais de scolarité
+	casesPlateau.push_back(new CasePropriete(20)); //65-66 RC07
+	casesPlateau.push_back(new CaseChance()); //Case chance 1
+	casesPlateau.push_back(new CaseCrous()); //Crous Cuvier
+	casesPlateau.push_back(new CasePropriete(45)); //56-66 105
+	casesPlateau.push_back(new CaseFrais(110)); //Loyer
+	casesPlateau.push_back(new CasePropriete(55)); //56-66 109
+	casesPlateau.push_back(new CasePropriete(65)); //56-66 112
+	
+	//Rangée gauche
+	casesPlateau.push_back(new CaseAngle('p')); //Prison
+	casesPlateau.push_back(new CasePropriete(85)); //55-56 101
+	casesPlateau.push_back(new CaseChance()); //Case chance 2
+	casesPlateau.push_back(new CasePropriete(95)); //55-56 102
+	casesPlateau.push_back(new CasePropriete(110)); //55-56 103
+	casesPlateau.push_back(new CaseCrous()); //Crous Censier
+	casesPlateau.push_back(new CasePropriete(140)); //Esclangon 201
+	casesPlateau.push_back(new CaseFrais(110)); //Loyer
+	casesPlateau.push_back(new CasePropriete(150)); //Esclangon 202
+	casesPlateau.push_back(new CasePropriete(180)); //Esclangon 203
+	
+	//Rangée haute
+	casesPlateau.push_back(new CaseAngle('s')); //Evenement BDE
+	casesPlateau.push_back(new CasePropriete(210)); //56-66 207
+	casesPlateau.push_back(new CaseChance()); //Case chance 3
+	casesPlateau.push_back(new CasePropriete(230)); //56-66 211
+	casesPlateau.push_back(new CasePropriete(250)); //56-66 213
+	casesPlateau.push_back(new CaseCrous()); //Crous Atrium Cafe
+	casesPlateau.push_back(new CasePropriete(280)); //Esclangon 304
+	casesPlateau.push_back(new CasePropriete(300)); //Esclangon 306
+	casesPlateau.push_back(new CaseFrais(110)); //Loyer
+	casesPlateau.push_back(new CasePropriete(310)); //Esclangon 321
+	
+	//Rangée droite
+	casesPlateau.push_back(new CaseAngle('a')); //Ascenseur
+	casesPlateau.push_back(new CasePropriete(340)); //Esclangon 319
+	casesPlateau.push_back(new CasePropriete(360)); //Esclangon 327
+	casesPlateau.push_back(new CaseChance()); //Case chance 4
+	casesPlateau.push_back(new CasePropriete(370)); //Esclangon 328
+	casesPlateau.push_back(new CaseCrous()); //Crous Chatelet
+	casesPlateau.push_back(new CaseFrais(110)); //Loyer
+	casesPlateau.push_back(new CasePropriete(410)); //46-56 103
+	casesPlateau.push_back(new CaseChance()); //Case chance 5
+	casesPlateau.push_back(new CasePropriete(450)); //Esclangon 324
 }
 
 bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
