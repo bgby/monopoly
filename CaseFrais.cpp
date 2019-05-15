@@ -5,7 +5,7 @@ CaseFrais::CaseFrais(int _prix) : Case::Case(){
 }
 
 void CaseFrais::effet(Joueur *j){
-	if(proprietaire != NULL){
+	if(j != NULL){
 			j->perdreArgent(prix);
 	}
 }

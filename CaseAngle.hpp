@@ -5,8 +5,9 @@
 
 class CaseAngle : public Case{
 	public:
-		CaseAngle(char& c);
+		CaseAngle(char c);
 		char getTypeCase(){return typeCase;};
+		void effet(Joueur *j);
 
 	private:
 		char typeCase;

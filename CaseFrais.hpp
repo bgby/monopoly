@@ -2,7 +2,7 @@
 #define CASEFRAIS
 
 #include "Case.hpp"
-#include "Joueur;hpp"
+#include "Joueur.hpp"
 
 class CaseFrais : public Case{
 	public:

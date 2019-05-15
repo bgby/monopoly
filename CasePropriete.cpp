@@ -15,3 +15,8 @@ int CasePropriete::getLoyer(){
 	else
 		return (prix + nbMaisons*prix/4)/4;
 }
+
+void CasePropriete::effet(Joueur *j){
+	if(proprietaire != NULL && proprietaire != j)
+		j->payer(*proprietaire, getLoyer());
+}

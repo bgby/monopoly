@@ -22,3 +22,6 @@ void CaseChance::tirerCarte(){
 
 	}
 }
+
+void CaseChance::effet(Joueur *j){
+	}

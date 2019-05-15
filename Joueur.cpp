@@ -2,8 +2,9 @@
 
 Joueur::Joueur(){
 	nom = "NON DEFINI";
-	argent = 1500;
+	argent = 2000;
 	nbProprietes = 0;
+	nbToursPrison = 0;
 	caseActuel = 1;
 
 	//Proprietes graphiques
@@ -36,4 +37,15 @@ int Joueur::lancerDe(De newDe){
 	return val;
 }
 
+void Joueur::gagnerArgent(int montant){
+	setArgent(getArgent() + montant);
+}
 
+void Joueur::perdreArgent(int montant){
+	setArgent(getArgent() - montant);
+}
+
+void Joueur::payer(Joueur& proprietaire, int montant){
+	perdreArgent(montant);
+	proprietaire.gagnerArgent(montant);
+}
