@@ -9,6 +9,9 @@ Jeu::Jeu(){
     set_border_width(10);
 
     conteneurBoutons = ConteneurBoutons();
+    //conteneurBoutons.boutonLancerDes.signal_clicked().connect([this]() { this->jouerTour(); });
+
+
     conteneurInfosGen = ConteneurInfosGen();
 
     //joueurTest = Joueur("Toto");

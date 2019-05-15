@@ -51,6 +51,18 @@ Plateau::Plateau(){
 	casesPlateau.push_back(new CasePropriete(410)); //46-56 103
 	casesPlateau.push_back(new CaseChance()); //Case chance 5
 	casesPlateau.push_back(new CasePropriete(450)); //Esclangon 324
+
+
+}
+
+Plateau::~Plateau(){/*
+	unsigned lenCasesPlateau = casesPlateau.size();
+	for(unsigned i = 0; i < lenCasesPlateau; i++){
+		std::cout << *(casesPlateau.end()) << std::endl;
+
+		delete *(casesPlateau.end());
+		//	casesPlateau.erase(casesPlateau.end());
+	}*/
 }
 
 bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)

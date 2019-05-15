@@ -7,6 +7,7 @@ class Joueur;
 class Case{
 	public:
 		Case();
+		virtual ~Case(){}
 		void ajouterVisiteur(Joueur *j);
 		void retirerVisiteur(Joueur *j);
 		virtual void effet(Joueur *j) = 0;

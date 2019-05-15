@@ -1,13 +1,13 @@
 #include "CaseCrous.hpp"
 
 CaseCrous::CaseCrous() : Case::Case(){
-	prix = 1000;
+	prix = 200;
 	proprietaire = NULL;
 }
 
 void CaseCrous::effet(Joueur *j){
 	if(proprietaire != NULL)
 		if(proprietaire->getNom() != j->getNom()){
-			//FAIRE LES MODIFS SUR JOUEURS AVANT
+			j->payer(*proprietaire, prix/4);
 		}
 }

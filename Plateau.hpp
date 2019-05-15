@@ -17,6 +17,7 @@ class Case;
 class Plateau : public Gtk::DrawingArea{
 	public:
 		Plateau();
+		~Plateau();
 
 	protected:
 		bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
