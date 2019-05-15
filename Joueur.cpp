@@ -2,8 +2,9 @@
 
 Joueur::Joueur(){
 	nom = "NON DEFINI";
-	argent = 1500;
+	argent = 2000;
 	nbProprietes = 0;
+	nbToursPrison = 0;
 	caseActuel = 1;
 
 	//Proprietes graphiques
@@ -36,21 +37,15 @@ int Joueur::lancerDe(De newDe){
 	return val;
 }
 
+void Joueur::gagnerArgent(int montant){
+	setArgent(getArgent() + montant);
+}
 
-void Joueur::jouerTour(Plateau plateauMonopoly){
+void Joueur::perdreArgent(int montant){
+	setArgent(getArgent() - montant);
+}
 
-	//Si c'est un double le joueur pourra rejouer donc on fait un boucle while
-	int val1 = 0;
-	int val2 = 0;
-	while(val1 == val2){
-		//On lance d'abord les dés
-		val1 = lancerDe(plateauMonopoly.getDe1());
-		val2 = lancerDe(plateauMonopoly.getDe1());
-		
-		//On met a jour la case actuelle
-		caseActuel = (caseActuel + val1 + val2)%40;
-		
-	}
-	
-	
+void Joueur::payer(Joueur& proprietaire, int montant){
+	perdreArgent(montant);
+	proprietaire.gagnerArgent(montant);
 }
