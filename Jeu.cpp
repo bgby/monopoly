@@ -5,7 +5,7 @@ Jeu::Jeu(){
 	//Option de la fenetre
 	set_title("Robopoly");
     set_resizable(false);
-	set_icon_from_file("medias/mrMonopoly.png");
+	set_icon_from_file("medias/pepper-head.png");
 	//resize(1024,768);
     set_position(Gtk::WIN_POS_CENTER);
     set_border_width(10);

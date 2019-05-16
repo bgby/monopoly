@@ -7,8 +7,8 @@
 #include <gtkmm/image.h>
 #include <gtkmm/button.h>
 #include <gtkmm/dialog.h>
-#include <gtkmm/entry.h>
-#include <gtkmm/label.h>
+//#include <gtkmm/entry.h>
+//#include <gtkmm/label.h>
 #include <gtkmm/stock.h>
 #include <gtkmm/window.h>
 
