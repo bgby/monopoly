@@ -20,6 +20,7 @@ class Plateau : public Gtk::DrawingArea{
 		~Plateau();
 		void changerJoueurCase(int idAncienneCase, int idNouvelleCase, Joueur *j);
 		void declencherEffet(int idCase, Joueur *j);
+		Case* getPCase(int idCase){return casesPlateau[idCase];}
 
 	protected:
 		bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;

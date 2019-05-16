@@ -12,6 +12,8 @@ Jeu::Jeu(){
 
     conteneurBoutons = ConteneurBoutons();
     conteneurBoutons.getBoutonLancerDes().signal_clicked().connect([this]() { this->debutTour(); });
+    conteneurBoutons.getBoutonFinDuTour().signal_clicked().connect([this]() { this->finTour(); });
+    conteneurBoutons.getBoutonAcheter().signal_clicked().connect([this]() { this->achat(); });
 
 
     conteneurInfosGen = ConteneurInfosGen();
@@ -59,9 +61,29 @@ void Jeu::debutTour(){
     jActuel.majAffiche();//METTRE A JOUR VARIABLE JOUEUR
 }
 
+void Jeu::achat(){
+    Joueur& jActuel = tabJoueurs[idJoueurActuel];
+    /*
+    if((std::typeid(plateau.getPCase(jActuel.getCaseActuel())) != std::typeid(&CasePropriete(0))) && (std::typeid(plateau.getPCase(jActuel.getCaseActuel())) != std::typeid(&CaseCrous())))
+    {
+        std::cout << "Cette case n'est pas achetable" << std::endl;
+    }
+    */
+    CasePropriete* caseAchat =(CasePropriete*)plateau.getPCase(jActuel.getCaseActuel());//PAS PROPRE, A REVOIR
+    if(jActuel.estSolvable(caseAchat->getPrix()) && caseAchat->getProprietaire() == NULL){//On verifie qu'il est solvable et qu'il n'y a pas deja de proprietaire
+        jActuel.ajoutPropriete(caseAchat);
+        caseAchat->setProprietaire(&jActuel);
+        jActuel.perdreArgent(caseAchat->getPrix());
+    }
+    else{
+        std::cout << "Vous n'avez pas assez d'argent ou la case appartient déjà à un autre joueur !" << std::endl;
+    }
+    jActuel.majAffiche();
+}
 
 void Jeu::finTour(){
     idJoueurActuel++;
+    idJoueurActuel = idJoueurActuel % tabJoueurs.size();
 }
 	
 void Jeu::afficherPopUpDe(int val1, int val2){

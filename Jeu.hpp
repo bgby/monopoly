@@ -22,6 +22,7 @@ class Jeu : public Gtk::Window{
 		Jeu();
 		Jeu(int nbJoueurs);
 		void debutTour();
+		void achat();
 		void finTour();
 		void afficherPopUpDe(int val1, int val2);
 		

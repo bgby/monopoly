@@ -36,7 +36,8 @@ class Joueur : public Gtk::Frame{
 		int getArgent() const {return argent;}
 		void gagnerArgent(int montant);
 		void perdreArgent(int montant);//VERIFIER QUE LE JOUEUR EST SOLVABLE
-		void payer(Joueur& proprietaire, int argent); //retirer l'argent au joueur this et ajouter cette argent au propriétaire 
+		void payer(Joueur& proprietaire, int argent); //retirer l'argent au joueur this et ajouter cette argent au propriétaire
+		bool estSolvable(int montant){return montant <= argent;};//verifie qu'un joueur a les moyens de payer
 		
 		void setNom(std::string newNom){nom = newNom;}
 		std::string getNom() const {return nom;}
