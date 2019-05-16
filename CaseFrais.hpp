@@ -9,7 +9,7 @@ class CaseFrais : public Case{
 		CaseFrais(int _prix);
 		int getPrix(){return prix;};
 
-		void effet(Joueur *j);
+		void effet(Joueur *j, Gtk::Window *fenetre);
 
 	private:
 		int prix;

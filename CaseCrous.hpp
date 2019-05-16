@@ -12,7 +12,7 @@ class CaseCrous : public Case{
 		void setProprietaire(Joueur *j){proprietaire = j;};
 		Joueur* getProprietaire(){return proprietaire;};
 
-		void effet(Joueur *j);
+		void effet(Joueur *j, Gtk::Window *fenetre);
 
 	private:
 		int prix;

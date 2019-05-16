@@ -105,6 +105,6 @@ void Plateau::changerJoueurCase(int idAncienneCase, int idNouvelleCase, Joueur *
 	casesPlateau[idNouvelleCase]->ajouterVisiteur(j);
 }
 
-void Plateau::declencherEffet(int idCase, Joueur *j){
-	casesPlateau[idCase]->effet(j);
+void Plateau::declencherEffet(int idCase, Joueur *j, Gtk::Window* fenetre){
+	casesPlateau[idCase]->effet(j, fenetre);
 }

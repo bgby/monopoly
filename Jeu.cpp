@@ -53,10 +53,9 @@ void Jeu::debutTour(){
         jActuel.deplacer(valDes);
         plateau.changerJoueurCase(ancienneCase, jActuel.getCaseActuel(), &(jActuel));
     }
-
-    plateau.declencherEffet(jActuel.getCaseActuel(), &jActuel);
-
-    jActuel.majAffiche();//METTRE A JOUR VARIABLE JOUEUR
+    
+	jActuel.majAffiche();//METTRE A JOUR VARIABLE JOUEUR
+    plateau.declencherEffet(jActuel.getCaseActuel(), &jActuel, this);
 }
 
 

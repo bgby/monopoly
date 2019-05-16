@@ -16,7 +16,7 @@ int CasePropriete::getLoyer(){
 		return (prix + nbMaisons*prix/4)/4;
 }
 
-void CasePropriete::effet(Joueur *j){
+void CasePropriete::effet(Joueur *j, Gtk::Window *fenetre){
 	if(proprietaire != NULL && proprietaire != j)
 		j->payer(*proprietaire, getLoyer());
 }

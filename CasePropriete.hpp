@@ -8,7 +8,7 @@ class CasePropriete : public Case {
 	public:
 		CasePropriete(int _prix);
 		int getLoyer();
-		void effet(Joueur *j);
+		void effet(Joueur *j, Gtk::Window* fenetre);
 
 	private:
 		Joueur *proprietaire;
