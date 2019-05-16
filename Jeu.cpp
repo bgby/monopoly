@@ -40,9 +40,12 @@ Jeu::Jeu(){
 int Jeu::lancerDe(){
 		de1.lancer();
 		int val = de1.getVal();
-		afficherPopUpDe(val);
 		de2.lancer();
 		val += de2.getVal();
+
+
+        afficherPopUpDe(de1.getVal(), de2.getVal());
+
         std::cout << val << std::endl;
         tabJoueurs[0].perdreArgent(10);
         tabJoueurs[0].majAffiche();
@@ -50,10 +53,12 @@ int Jeu::lancerDe(){
 		return val;
 }
 		
-void Jeu::afficherPopUpDe(int val){
-	std::string s;
-	s = "medias/" + std::to_string(val) + ".png";
-	PopUpDe des("Lancer dés", this, s);
+void Jeu::afficherPopUpDe(int val1, int val2){
+	std::string s1;
+    std::string s2;
+	s1 = "medias/" + std::to_string(val1) + ".png";
+    s2 = "medias/" + std::to_string(val2) + ".png";
+	PopUpDe des("Lancer dés", this, s1, s2);
 	des.run();
 }
 		

@@ -30,18 +30,14 @@ DEROULEMENT :
 					- Si on achete pas ou en personne 
 						- ne fait rien
 			- clic sur fin de tour lance Jeu.finTour():
-<<<<<<< HEAD
-				incrémente le joueur pour passé au joueur suivant
-=======
+
 				incrémente le joueur pour passer au joueur suivant
->>>>>>> 308b78cb5e82bbb1e251bf5f4c10885482fd2d78
 
 			
 /!\ créer les joueurs qu'une seule fois
 
 
 A FAIRE (Briac):
-- Cases
 
 A FAIRE (Théo):
 - Class Joueur :
