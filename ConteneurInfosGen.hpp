@@ -10,7 +10,11 @@ class ConteneurInfosGen: public Gtk::VBox{
 		ConteneurInfosGen();
 
 	private:
-		Gtk::Label label;
+		Gtk::Label titre;
+		Gtk::Label joueurCourant;
+		Gtk::Label caseActuelle;
+		Gtk::Label prixCaseActuelle;
+		Gtk::Label propCaseActuelle;
 };
 
 #endif
