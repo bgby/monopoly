@@ -13,7 +13,7 @@ void CaseAngle::effet(Joueur *j, Gtk::Window *fenetre){
 			j->gagnerArgent(300);
 			//affichage de la popup
 			dialogue.set_title("Information");
-			dialogue.set_secondary_text("Vous passez par la case départ \n vous recever 300k", false);
+			dialogue.set_secondary_text("Vous passez par la case départ \n vous recevez 300", false);
 			dialogue.run();
 			
 			break;
@@ -32,13 +32,13 @@ void CaseAngle::effet(Joueur *j, Gtk::Window *fenetre){
 
 		case 's':
 			dialogue.set_title("Information");
-			dialogue.set_secondary_text("Le BDE organise un évènement dans une de vos salle \n le oyer de la case de votre choix triple", false);
+			dialogue.set_secondary_text("Le BDE organise un évènement dans une de vos salle \n le loyer de la case de votre choix triple", false);
 			dialogue.run();
 			break;
 
 		case 'a':
 			dialogue.set_title("Information");
-			dialogue.set_secondary_text("Vous prenez l'ascenseur de Polytech \n Vous pouvez vous deplacez sur n'importe quelle case", false);
+			dialogue.set_secondary_text("Vous prenez l'ascenseur de Polytech \n Vous pouvez vous déplacer sur n'importe quelle case", false);
 			dialogue.run();
 			break;
 	}

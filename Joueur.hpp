@@ -21,8 +21,7 @@ class Joueur : public Gtk::Frame{
 		Joueur(std::string _nom);
 		
 		//Proprietes
-		void setNbProprietes(int newNb){nbProprietes = newNb;}
-		int getNbProprietes() const {return nbProprietes;}
+		int getNbProprietes() const {return listCaseJ.size();}
 		void ajoutPropriete(Case* casePropr);
 		void suprPropriete(Case* casePropr);
 		
@@ -41,6 +40,10 @@ class Joueur : public Gtk::Frame{
 		
 		void setNom(std::string newNom){nom = newNom;}
 		std::string getNom() const {return nom;}
+
+		//Etape du tour
+		void setEtapeTour(int step){etapeTour = step;}
+		int getEtapeTour(){return etapeTour;}
 		
 		//Prison
 		bool estEnPrison(){return nbToursPrison > 0;}
@@ -61,7 +64,7 @@ class Joueur : public Gtk::Frame{
 		
 		std::string nom;
 		int argent;
-		int nbProprietes;
+		int etapeTour;//decrit l'etape où il en est dans son tour de jeu, 0 : n'a pas lancé les dés, 1 : n'a pas encore décidé d'acheter, 2 : a déjà acheté
 		int caseActuel;
 		std::list<Case*> listCaseJ;
 		int nbToursPrison; //Nombre de tour qui lui reste en prison (0 de base, passe a 3 sur la case prison)

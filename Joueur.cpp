@@ -3,9 +3,9 @@
 Joueur::Joueur(){
 	nom = "NON DEFINI";
 	argent = 2000;
-	nbProprietes = 0;
 	nbToursPrison = 0;
 	caseActuel = 0; //case départ (de 0 jusqu'a 39)
+	etapeTour = 0;
 
 	//Proprietes graphiques
 	set_label(nom);//On nomme la frame avec le nom du Joueur
@@ -13,7 +13,7 @@ Joueur::Joueur(){
 
 	//On créer des label
 	labelArgent = Gtk::Label("Argent : " + std::to_string(argent));
-	labelNbProprietes = Gtk::Label("Nombre de propriétés : " + std::to_string(nbProprietes));
+	labelNbProprietes = Gtk::Label("Nombre de propriétés : " + std::to_string(listCaseJ.size()));
 	labelcaseActuel = Gtk::Label("Case actuelle : " + std::to_string(caseActuel));
 
 	vbox.pack_start(labelArgent);
@@ -33,7 +33,7 @@ Joueur::Joueur(std::string _nom) : Joueur::Joueur(){
 void Joueur::majAffiche(){
 
 	labelArgent.set_label("Argent : " + std::to_string(argent));
-	labelNbProprietes.set_label("Nombre de propriétés : " + std::to_string(nbProprietes));
+	labelNbProprietes.set_label("Nombre de propriétés : " + std::to_string(listCaseJ.size()));
 	labelcaseActuel.set_label("Case actuelle : " + std::to_string(caseActuel));
 }
 

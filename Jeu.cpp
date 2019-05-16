@@ -43,6 +43,12 @@ Jeu::Jeu(){
 
 void Jeu::debutTour(){
     Joueur& jActuel = tabJoueurs[idJoueurActuel];
+
+    if(jActuel.getEtapeTour()>0){
+        std::cout << "Vous avez déjà lancé les dés !" << std::endl;
+        return;
+    }
+
     int ancienneCase;
     int valDes = de1.lancer() + de2.lancer();
     afficherPopUpDe(de1.getVal(), de2.getVal());
@@ -58,10 +64,16 @@ void Jeu::debutTour(){
     
 	jActuel.majAffiche();//METTRE A JOUR VARIABLE JOUEUR
     plateau.declencherEffet(jActuel.getCaseActuel(), &jActuel, this);
+    jActuel.setEtapeTour(1);
 }
 
 void Jeu::achat(){
     Joueur& jActuel = tabJoueurs[idJoueurActuel];
+
+    if(jActuel.getEtapeTour() != 1){
+        std::cout << "Vous n'avez pas encore lancé les dés ou vous avez déjà cliqué sur Acheter !" << std::endl;
+        return;
+    }
     /*
     if((std::typeid(plateau.getPCase(jActuel.getCaseActuel())) != std::typeid(&CasePropriete(0))) && (std::typeid(plateau.getPCase(jActuel.getCaseActuel())) != std::typeid(&CaseCrous())))
     {
@@ -75,12 +87,14 @@ void Jeu::achat(){
         jActuel.perdreArgent(caseAchat->getPrix());
     }
     else{
-        std::cout << "Vous n'avez pas assez d'argent ou la case appartient déjà à un autre joueur !" << std::endl;
+        std::cout << "Vous n'avez pas assez d'argent ou la case a déjà un propriétaire !" << std::endl;
     }
     jActuel.majAffiche();
 }
 
 void Jeu::finTour(){
+    tabJoueurs[idJoueurActuel].setEtapeTour(0);//On remet le compteur à 0 en fin de tour
+
     idJoueurActuel++;
     idJoueurActuel = idJoueurActuel % tabJoueurs.size();
 }
