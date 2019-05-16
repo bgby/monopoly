@@ -29,6 +29,7 @@ class Joueur : public Gtk::Frame{
 		//Déplacement
 		void deplacer(int val);
 		void teleporter(int id);
+		int getCaseActuel(){return caseActuel;}
 		
 		//ARGENT
 		void setArgent(int newArgent){argent = newArgent;}

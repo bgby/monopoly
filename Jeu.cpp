@@ -11,7 +11,7 @@ Jeu::Jeu(){
     set_border_width(10);
 
     conteneurBoutons = ConteneurBoutons();
-    conteneurBoutons.getBoutonLancerDes().signal_clicked().connect([this]() { this->lancerDe(); });
+    conteneurBoutons.getBoutonLancerDes().signal_clicked().connect([this]() { this->debutTour(); });
 
 
     conteneurInfosGen = ConteneurInfosGen();
@@ -35,6 +35,28 @@ Jeu::Jeu(){
     add(hboxMain);
 
     show_all();
+
+    idJoueurActuel = 0;
+}
+
+void Jeu::debutTour(){
+    int valDes = lancerDe();
+    Joueur& jActuel = tabJoueurs[idJoueurActuel];
+    int ancienneCase;
+    if(!(jActuel.estEnPrison())){
+        ancienneCase = jActuel.getCaseActuel();
+        jActuel.deplacer(valDes);
+        plateau.changerJoueurCase(ancienneCase, jActuel.getCaseActuel(), &(jActuel));
+    }
+
+    plateau.declencherEffet(jActuel.getCaseActuel(), &jActuel);
+
+    jActuel.majAffiche();//METTRE A JOUR VARIABLE JOUEUR
+}
+
+
+void Jeu::finTour(){
+    idJoueurActuel++;
 }
 
 int Jeu::lancerDe(){
@@ -42,14 +64,7 @@ int Jeu::lancerDe(){
 		int val = de1.getVal();
 		de2.lancer();
 		val += de2.getVal();
-
-
         afficherPopUpDe(de1.getVal(), de2.getVal());
-
-        std::cout << val << std::endl;
-        tabJoueurs[0].perdreArgent(10);
-        tabJoueurs[0].majAffiche();
-        std::cout << tabJoueurs[0].getArgent() << std::endl;
 		return val;
 }
 		

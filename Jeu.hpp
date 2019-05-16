@@ -21,6 +21,8 @@ class Jeu : public Gtk::Window{
 	public:
 		Jeu();
 		Jeu(int nbJoueurs);
+		void debutTour();
+		void finTour();
 		int lancerDe();//Si le joueur veux lancer les dés
 		void afficherPopUpDe(int val1, int val2);
 		
@@ -36,6 +38,8 @@ class Jeu : public Gtk::Window{
 
 		//Joueur joueurTest;
 		std::vector<Joueur> tabJoueurs;
+
+		int idJoueurActuel;
 		
 		//2 Dé
 		De de1;

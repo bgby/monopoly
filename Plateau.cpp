@@ -99,3 +99,12 @@ bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   
   return true;
 }
+
+void Plateau::changerJoueurCase(int idAncienneCase, int idNouvelleCase, Joueur *j){
+	casesPlateau[idAncienneCase]->retirerVisiteur(j);
+	casesPlateau[idNouvelleCase]->ajouterVisiteur(j);
+}
+
+void Plateau::declencherEffet(int idCase, Joueur *j){
+	casesPlateau[idCase]->effet(j);
+}
