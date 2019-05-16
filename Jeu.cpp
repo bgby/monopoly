@@ -40,18 +40,20 @@ Jeu::Jeu(){
 int Jeu::lancerDe(){
 		de1.lancer();
 		int val = de1.getVal();
+		afficherPopUpDe(val);
 		de2.lancer();
 		val += de2.getVal();
         std::cout << val << std::endl;
         tabJoueurs[0].perdreArgent(10);
         tabJoueurs[0].majAffiche();
-        afficherPopUpDe();
         std::cout << tabJoueurs[0].getArgent() << std::endl;
 		return val;
 }
 		
-void Jeu::afficherPopUpDe(){
-	PopUpDe des("Lancer dés", this, " ");
+void Jeu::afficherPopUpDe(int val){
+	std::string s;
+	s = "medias/" + std::to_string(val) + ".png";
+	PopUpDe des("Lancer dés", this, s);
 	des.run();
 }
 		

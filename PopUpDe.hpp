@@ -14,12 +14,12 @@
 
 class PopUpDe : public Gtk::Dialog {
     public :
-        PopUpDe(std::string titre, Gtk::Window* parent, std::string message);
+        PopUpDe(std::string titre, Gtk::Window* parent, std::string nom);
         
     private :
         Gtk::Box* boiteV;
-        Gtk::Label etiquette;
         Gtk::Image* img;
+        std::string nomImage;
 };
 
 #endif

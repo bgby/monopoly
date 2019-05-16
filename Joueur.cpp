@@ -40,7 +40,7 @@ void Joueur::majAffiche(){
 //Fonction qui déplace le joueur du nombre de cases passé en paramètre
 //Inclu le fait de passer par la case départ
 void Joueur::deplacer(int val){
-	if(caseActuel + val > 39){ //Son on passe la ligne de départ
+	if(caseActuel + val > 39){ //Si on passe la ligne de départ
 		gagnerArgent(300);
 		//Coder un affichage 
 	}

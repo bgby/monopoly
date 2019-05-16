@@ -6,6 +6,7 @@
 #include <gtkmm/window.h>
 #include <gtkmm/box.h>
 
+#include <string>
 #include "PopUpDe.hpp"
 
 #include "ConteneurBoutons.hpp"
@@ -21,7 +22,7 @@ class Jeu : public Gtk::Window{
 		Jeu();
 		Jeu(int nbJoueurs);
 		int lancerDe();//Si le joueur veux lancer les dés
-		void afficherPopUpDe();
+		void afficherPopUpDe(int val);
 		
 
 	private:
