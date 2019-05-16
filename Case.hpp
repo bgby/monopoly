@@ -2,6 +2,7 @@
 #define CASE
 
 #include "Joueur.hpp"
+#include <gtkmm/messagedialog.h>
 class Joueur;
 
 class Case{
@@ -10,7 +11,7 @@ class Case{
 		virtual ~Case(){}
 		void ajouterVisiteur(Joueur *j);
 		void retirerVisiteur(Joueur *j);
-		virtual void effet(Joueur *j) = 0;
+		virtual void effet(Joueur *j, Gtk::Window* fenetre) = 0;
 		int getId() const {return id;}
 
 	private:

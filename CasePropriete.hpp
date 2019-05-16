@@ -11,7 +11,8 @@ class CasePropriete : public Case {
 		int getLoyer();
 		void setProprietaire(Joueur *j){proprietaire = j;};
 		Joueur* getProprietaire(){return proprietaire;};
-		void effet(Joueur *j);
+
+		void effet(Joueur *j, Gtk::Window* fenetre);
 
 	private:
 		Joueur *proprietaire;

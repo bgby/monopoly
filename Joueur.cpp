@@ -47,10 +47,10 @@ void Joueur::deplacer(int val){
 	caseActuel = (caseActuel + val) %40;
 }
 
-//Fonction qui téléporte le joueur à la case passé en argument
+//Fonction qui téléporte le joueur à la case passée en argument
 //Inclu le fait de passer par la case départ
 void Joueur::teleporter(int id){
-	if(id > 30 && id < 39){ //si il se téléporte sans passer la case départ
+	if(caseActuel-id >= 0){ //si il se téléporte sans passer la case départ
 		caseActuel = id;
 	}
 	else{
