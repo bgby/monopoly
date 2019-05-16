@@ -8,9 +8,10 @@ class De{
 	public: 
 		De() : val(-1) {srand(time(NULL));} //Constructeur par défaut : initialise la valeur du dé à -1
 		
-		void lancer(){
+		int lancer(){
 			
 			val = rand()%6 + 1;
+			return val;
 		}
 		
 		int getVal() const{

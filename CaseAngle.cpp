@@ -13,6 +13,8 @@ void CaseAngle::effet(Joueur *j){
 		case 'p':
 			if(!(j->estEnPrison()))
 				j->partEnPrison();
+			else
+				j->decrementerTourPrison();
 			break;
 
 		case 's':

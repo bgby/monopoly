@@ -23,7 +23,6 @@ class Jeu : public Gtk::Window{
 		Jeu(int nbJoueurs);
 		void debutTour();
 		void finTour();
-		int lancerDe();//Si le joueur veux lancer les dés
 		void afficherPopUpDe(int val1, int val2);
 		
 

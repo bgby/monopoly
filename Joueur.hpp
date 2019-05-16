@@ -43,7 +43,8 @@ class Joueur : public Gtk::Frame{
 		
 		//Prison
 		bool estEnPrison(){return nbToursPrison > 0;}
-		void partEnPrison(){nbToursPrison = 3;}
+		void partEnPrison(){nbToursPrison = 2;}
+		void sortDePrison(){nbToursPrison = 0;}
 		void decrementerTourPrison(){if(estEnPrison())
 										nbToursPrison--;}
 										
@@ -62,7 +63,7 @@ class Joueur : public Gtk::Frame{
 		int nbProprietes;
 		int caseActuel;
 		std::list<Case*> listCaseJ;
-		int nbToursPrison; //Nombre de tour qui lui reste en prison (0 de bases, passe a 3 sur la case prison)
+		int nbToursPrison; //Nombre de tour qui lui reste en prison (0 de base, passe a 3 sur la case prison)
 		
 
 		//Proprietes graphiques

@@ -40,9 +40,14 @@ Jeu::Jeu(){
 }
 
 void Jeu::debutTour(){
-    int valDes = lancerDe();
     Joueur& jActuel = tabJoueurs[idJoueurActuel];
     int ancienneCase;
+    int valDes = de1.lancer() + de2.lancer();
+    afficherPopUpDe(de1.getVal(), de2.getVal());
+
+    if(jActuel.estEnPrison() && de1.getVal() == de2.getVal())//si le joueur fait un double, il sort immediatement de prison
+        jActuel.sortDePrison();
+
     if(!(jActuel.estEnPrison())){
         ancienneCase = jActuel.getCaseActuel();
         jActuel.deplacer(valDes);
@@ -58,16 +63,7 @@ void Jeu::debutTour(){
 void Jeu::finTour(){
     idJoueurActuel++;
 }
-
-int Jeu::lancerDe(){
-		de1.lancer();
-		int val = de1.getVal();
-		de2.lancer();
-		val += de2.getVal();
-        afficherPopUpDe(de1.getVal(), de2.getVal());
-		return val;
-}
-		
+	
 void Jeu::afficherPopUpDe(int val1, int val2){
 	std::string s1;
     std::string s2;
