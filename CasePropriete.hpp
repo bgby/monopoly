@@ -13,6 +13,7 @@ class CasePropriete : public Case {
 		Joueur* getProprietaire(){return proprietaire;};
 
 		void effet(Joueur *j, Gtk::Window* fenetre);
+		void majInfos();
 
 	private:
 		Joueur *proprietaire;
@@ -20,6 +21,12 @@ class CasePropriete : public Case {
 		//int loyer;
 		int nbMaisons;
 		bool isFestival;
+
+		//proprietes graphiques
+		Gtk::VBox vbox;
+		Gtk::Label lPrix;
+		Gtk::Label lLoyer;
+		Gtk::Label lProp;
 	
 };
 

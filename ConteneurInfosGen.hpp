@@ -1,20 +1,20 @@
 #ifndef CONTENEURINFOSGEN
 #define CONTENEURINFOSGEN
 
-#include <gtkmm/box.h>
+#include "Joueur.hpp"
+
+#include <gtkmm/frame.h>
 #include <gtkmm/label.h>
 #include <string>
 
-class ConteneurInfosGen: public Gtk::VBox{
+class ConteneurInfosGen: public Gtk::Frame{
 	public:
 		ConteneurInfosGen();
+		ConteneurInfosGen(Joueur& j);
+		void majJoueur(Joueur& j);
 
 	private:
-		Gtk::Label titre;
-		Gtk::Label joueurCourant;
-		Gtk::Label caseActuelle;
-		Gtk::Label prixCaseActuelle;
-		Gtk::Label propCaseActuelle;
+		Gtk::Label lNom;
 };
 
 #endif

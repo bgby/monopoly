@@ -10,9 +10,12 @@ class CaseFrais : public Case{
 		int getPrix(){return prix;};
 
 		void effet(Joueur *j, Gtk::Window *fenetre);
+		void majInfos(){};
 
 	private:
 		int prix;
+
+		Gtk::Label lPrix;
 };
 
 #endif

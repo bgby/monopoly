@@ -3,9 +3,13 @@
 
 #include "Joueur.hpp"
 #include <gtkmm/messagedialog.h>
+#include <gtkmm/frame.h>
+#include <gtkmm/box.h>
+#include <gtkmm/label.h>
+
 class Joueur;
 
-class Case{
+class Case : public Gtk::Frame{
 	public:
 		Case();
 		virtual ~Case(){}
@@ -13,6 +17,8 @@ class Case{
 		void retirerVisiteur(Joueur *j);
 		virtual void effet(Joueur *j, Gtk::Window* fenetre) = 0;
 		int getId() const {return id;}
+
+		virtual void majInfos() = 0;
 
 	private:
 		int id;

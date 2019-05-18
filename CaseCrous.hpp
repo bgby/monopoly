@@ -13,10 +13,17 @@ class CaseCrous : public Case{
 		Joueur* getProprietaire(){return proprietaire;};
 
 		void effet(Joueur *j, Gtk::Window *fenetre);
+		void majInfos();
 
 	private:
 		int prix;
 		Joueur *proprietaire;
+
+		//proprietes graphiques
+		Gtk::VBox vbox;
+		Gtk::Label lPrix;
+		Gtk::Label lLoyer;
+		Gtk::Label lProp;
 };
 
 #endif

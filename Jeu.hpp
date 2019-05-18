@@ -26,6 +26,7 @@ class Jeu : public Gtk::Window{
 		void achat();
 		void finTour();
 		void afficherPopUpDe(int val1, int val2);
+		void majAffichageCase(int idCase);
 		
 
 	private:
@@ -41,8 +42,10 @@ class Jeu : public Gtk::Window{
 		std::vector<Joueur> tabJoueurs;
 
 		int idJoueurActuel;
+
+		Case* caseActuelle;
 		
-		//2 Dé
+		//2 Dés
 		De de1;
 		De de2;
 

@@ -1,14 +1,18 @@
 #include "ConteneurInfosGen.hpp"
 
 ConteneurInfosGen::ConteneurInfosGen(){
-	titre = Gtk::Label("Informations générales : ");
-	joueurCourant = Gtk::Label("Joueur courant : ");
-	caseActuelle = Gtk::Label("Case actuelle : ");
-	prixCaseActuelle = Gtk::Label("Prix : ");
-	propCaseActuelle = Gtk::Label("Propriétaire : ");
-	pack_start(titre);
-	pack_start(joueurCourant);
-	pack_start(caseActuelle);
-	pack_start(prixCaseActuelle);
-	pack_start(propCaseActuelle);	
+	set_label("Joueur Courant");
+	lNom = Gtk::Label("NON DEFINI");
+	
+	add(lNom);
+
+	show_all();
+}
+
+ConteneurInfosGen::ConteneurInfosGen(Joueur& j) : ConteneurInfosGen::ConteneurInfosGen(){
+	lNom.set_label(j.getNom());
+}
+
+void ConteneurInfosGen::majJoueur(Joueur& j){
+	lNom.set_label(j.getNom());
 }

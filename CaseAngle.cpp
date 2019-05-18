@@ -3,6 +3,23 @@
 
 CaseAngle::CaseAngle(char c) : Case::Case(){// 4 types possibles {'d' -> Depart, 'p' -> Prison, 's' -> Soiree BDE, 'a' -> Ascenseur}
 	typeCase = c;
+	switch(c){
+		case 'd':
+			set_label("Case Départ");
+			break;
+
+		case 'p':
+			set_label("Case Prison");
+			break;
+
+		case 's':
+			set_label("Case BDE");
+			break;
+
+		case 'a':
+			set_label("Case Ascenseur");
+			break;
+	}
 }
 
 void CaseAngle::effet(Joueur *j, Gtk::Window *fenetre){

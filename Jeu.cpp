@@ -1,7 +1,8 @@
 #include "Jeu.hpp"
 
 Jeu::Jeu(){
-	
+	caseActuelle = plateau.getPCase(0);
+
 	//Option de la fenetre
 	set_title("Robopoly");
     set_resizable(false);
@@ -16,7 +17,7 @@ Jeu::Jeu(){
     conteneurBoutons.getBoutonAcheter().signal_clicked().connect([this]() { this->achat(); });
 
 
-    conteneurInfosGen = ConteneurInfosGen();
+    
 
     //joueurTest = Joueur("Toto");
     //testConteneur = ConteneurInfosJoueur(joueurTest);
@@ -27,6 +28,7 @@ Jeu::Jeu(){
 
     vboxLeft.pack_start(conteneurBoutons);
     vboxLeft.pack_start(conteneurInfosGen);
+    vboxLeft.pack_start(*caseActuelle);
 
     //vboxRight.pack_start(joueurTest);
 
@@ -44,6 +46,9 @@ Jeu::Jeu(){
 void Jeu::debutTour(){
     Joueur& jActuel = tabJoueurs[idJoueurActuel];
     Gtk::MessageDialog popUpInfos(*this, "Information", false);
+
+    //mise a jour affichage Case
+    majAffichageCase(jActuel.getCaseActuel());
 
     if(jActuel.getEtapeTour()>0){
         //std::cout << "Vous avez déjà lancé les dés !" << std::endl;
@@ -66,7 +71,12 @@ void Jeu::debutTour(){
         plateau.changerJoueurCase(ancienneCase, jActuel.getCaseActuel(), &(jActuel));
     }
     
+    //mise a jour Case apres lancer des dés
+    majAffichageCase(jActuel.getCaseActuel());
+
 	jActuel.majAffiche();//METTRE A JOUR VARIABLE JOUEUR
+    //conteneurInfosGen.majInfos(jActuel.getNom(), jActuel.getCaseActuel(), (plateau.getPCase(jActuel.getCaseActuel()))->getPrix(), std::string& _propCaseActuelle);
+    
     plateau.declencherEffet(jActuel.getCaseActuel(), &jActuel, this);
     jActuel.setEtapeTour(1);
 }
@@ -101,6 +111,7 @@ void Jeu::achat(){
         popUpInfos.run();
     }
     jActuel.majAffiche();
+    majAffichageCase(jActuel.getCaseActuel());
 }
 
 void Jeu::finTour(){
@@ -117,6 +128,8 @@ void Jeu::finTour(){
 
     idJoueurActuel++;
     idJoueurActuel = idJoueurActuel % tabJoueurs.size();
+    majAffichageCase(tabJoueurs[idJoueurActuel].getCaseActuel());
+    conteneurInfosGen.majJoueur(tabJoueurs[idJoueurActuel]);
 }
 	
 void Jeu::afficherPopUpDe(int val1, int val2){
@@ -129,8 +142,19 @@ void Jeu::afficherPopUpDe(int val1, int val2){
 }
 		
 Jeu::Jeu(int nbJoueurs) : Jeu::Jeu(){
+    std::string names[4] = {"Nao", "Pepper", "Baxter", "Roomba"};
     for(int i = 0; i < nbJoueurs; i++){
-        tabJoueurs.push_back(Joueur());
+        tabJoueurs.push_back(Joueur(names[i]));
         vboxRight.pack_start(tabJoueurs[i]);
     }
+
+    conteneurInfosGen.majJoueur(tabJoueurs[0]);
+}
+
+void Jeu::majAffichageCase(int idCase){
+    vboxLeft.remove(*caseActuelle);
+    caseActuelle = plateau.getPCase(idCase);
+    caseActuelle->majInfos();
+    vboxLeft.pack_start(*caseActuelle);
+    show_all();
 }
