@@ -5,6 +5,7 @@
 
 #include <gtkmm/window.h>
 #include <gtkmm/box.h>
+#include <gtkmm/messagedialog.h>
 
 #include <string>
 #include "PopUpDe.hpp"

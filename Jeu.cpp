@@ -43,9 +43,13 @@ Jeu::Jeu(){
 
 void Jeu::debutTour(){
     Joueur& jActuel = tabJoueurs[idJoueurActuel];
+    Gtk::MessageDialog popUpInfos(*this, "Information", false);
 
     if(jActuel.getEtapeTour()>0){
-        std::cout << "Vous avez déjà lancé les dés !" << std::endl;
+        //std::cout << "Vous avez déjà lancé les dés !" << std::endl;
+        popUpInfos.set_title("Action impossible");
+        popUpInfos.set_secondary_text("Vous avez déjà lancé les dés !");
+        popUpInfos.run();
         return;
     }
 
@@ -69,9 +73,13 @@ void Jeu::debutTour(){
 
 void Jeu::achat(){
     Joueur& jActuel = tabJoueurs[idJoueurActuel];
+    Gtk::MessageDialog popUpInfos(*this, "Information", false);
 
     if(jActuel.getEtapeTour() != 1){
-        std::cout << "Vous n'avez pas encore lancé les dés ou vous avez déjà cliqué sur Acheter !" << std::endl;
+        //std::cout << "Vous n'avez pas encore lancé les dés ou vous avez déjà cliqué sur Acheter !" << std::endl;
+        popUpInfos.set_title("Action impossible");
+        popUpInfos.set_secondary_text("Vous n'avez pas encore lancé les dés ou vous avez déjà cliqué sur Acheter !");
+        popUpInfos.run();
         return;
     }
     /*
@@ -87,12 +95,24 @@ void Jeu::achat(){
         jActuel.perdreArgent(caseAchat->getPrix());
     }
     else{
-        std::cout << "Vous n'avez pas assez d'argent ou la case a déjà un propriétaire !" << std::endl;
+        //std::cout << "Vous n'avez pas assez d'argent ou la case a déjà un propriétaire !" << std::endl;
+        popUpInfos.set_title("Action impossible");
+        popUpInfos.set_secondary_text("Vous n'avez pas assez d'argent ou la case a déjà un propriétaire !");
+        popUpInfos.run();
     }
     jActuel.majAffiche();
 }
 
 void Jeu::finTour(){
+    Gtk::MessageDialog popUpInfos(*this, "Information", false);
+
+    if(tabJoueurs[idJoueurActuel].getEtapeTour() == 0){
+        popUpInfos.set_title("Action impossible");
+        popUpInfos.set_secondary_text("Vous n'avez pas encore lancé les dés !");
+        popUpInfos.run();
+        return;
+    }
+
     tabJoueurs[idJoueurActuel].setEtapeTour(0);//On remet le compteur à 0 en fin de tour
 
     idJoueurActuel++;
