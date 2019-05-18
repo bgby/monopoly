@@ -62,6 +62,8 @@ void Jeu::debutTour(){
     int valDes = de1.lancer() + de2.lancer();
     afficherPopUpDe(de1.getVal(), de2.getVal());
 
+    //valDes = 9;
+
     if(jActuel.estEnPrison() && de1.getVal() == de2.getVal())//si le joueur fait un double, il sort immediatement de prison
         jActuel.sortDePrison();
 
@@ -74,10 +76,14 @@ void Jeu::debutTour(){
     //mise a jour Case apres lancer des dés
     majAffichageCase(jActuel.getCaseActuel());
 
-	jActuel.majAffiche();//METTRE A JOUR VARIABLE JOUEUR
+	
     //conteneurInfosGen.majInfos(jActuel.getNom(), jActuel.getCaseActuel(), (plateau.getPCase(jActuel.getCaseActuel()))->getPrix(), std::string& _propCaseActuelle);
     
     plateau.declencherEffet(jActuel.getCaseActuel(), &jActuel, this);
+
+    for(unsigned i = 0; i<tabJoueurs.size(); i++)
+        tabJoueurs[i].majAffiche();//METTRE A JOUR VARIABLE JOUEUR
+
     jActuel.setEtapeTour(1);
 }
 
@@ -143,8 +149,9 @@ void Jeu::afficherPopUpDe(int val1, int val2){
 		
 Jeu::Jeu(int nbJoueurs) : Jeu::Jeu(){
     std::string names[4] = {"Nao", "Pepper", "Baxter", "Roomba"};
+    char colors[4] = {'r', 'g', 'b', 'y'};
     for(int i = 0; i < nbJoueurs; i++){
-        tabJoueurs.push_back(Joueur(names[i]));
+        tabJoueurs.push_back(Joueur(names[i], colors[i]));
         vboxRight.pack_start(tabJoueurs[i]);
     }
 

@@ -73,29 +73,43 @@ bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   cr->rectangle(0, 0, image->get_width(), image->get_height());
   cr->fill();
 
-  /*
-  //Gtk::Allocation allocation = get_allocation();
-  const int width = get_width();
-  const int height = get_height();
+  Gtk::Allocation allocation = get_allocation();
+  const int width = allocation.get_width();
+  const int height = allocation.get_height();
+
+  //Player color
+  char color;
 
   // coordinates for the center of the window
   int xc, yc;
   xc = width / 2;
   yc = height / 2;
 
-  cr->set_line_width(10.0);
-
-  // draw red lines out from the center of the window
-
   
-  cr->set_source_rgb(0.8, 0.0, 0.0);
-  cr->move_to(0, 0);
-  cr->line_to(xc, yc);
-  cr->line_to(0, height);
-  cr->move_to(xc, yc);
-  cr->line_to(width, yc);
-  cr->stroke();
+  cr->set_line_width(2.0);
+
+  cr->set_source_rgb(0.0, 0.8, 0.0);
+  cr->move_to(638, 769);
+  cr->line_to(687, 769);
+  cr->move_to(xc,yc);
+  //cr->arc(TEST);
+  cr->fill();
+
+  //Tracage des visiteurs
+  /*
+  for(unsigned c = 0; c < casesPlateau.size(); c++){
+  	for(unsigned v = 0; v < casesPlateau[c]->getLenListeVisiteurs(); v++){
+  		color = casesPlateau[c]->getVisiteur(v)->getColor;
+  		switch(color){
+  			case 'r':
+
+  				break;
+  		}
+  	}
+  }
   */
+  cr->stroke();
+  
   
   return true;
 }

@@ -18,7 +18,7 @@ class Joueur : public Gtk::Frame{
 	public:
 		//Constructeur
 		Joueur();
-		Joueur(std::string _nom);
+		Joueur(std::string _nom, char _color);
 		
 		//Proprietes
 		int getNbProprietes() const {return listCaseJ.size();}
@@ -54,6 +54,9 @@ class Joueur : public Gtk::Frame{
 										
 		//affichage
 		void majAffiche();
+
+		//Couleur
+		char getColor(){return color;};
 		
 
 
@@ -63,6 +66,7 @@ class Joueur : public Gtk::Frame{
 		//static int next_id = 1;
 		
 		std::string nom;
+		char color;//{r,g,b,y}
 		int argent;
 		int etapeTour;//decrit l'etape où il en est dans son tour de jeu, 0 : n'a pas lancé les dés, 1 : n'a pas encore décidé d'acheter, 2 : a déjà acheté
 		int caseActuel;

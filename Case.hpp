@@ -18,6 +18,9 @@ class Case : public Gtk::Frame{
 		virtual void effet(Joueur *j, Gtk::Window* fenetre) = 0;
 		int getId() const {return id;}
 
+		unsigned getLenListeVisiteurs(){return listeVisiteurs.size();};
+		Joueur* getVisiteur(int i){return listeVisiteurs[i];};
+
 		virtual void majInfos() = 0;
 
 	private:

@@ -25,9 +25,10 @@ Joueur::Joueur(){
 	show_all();
 }
 
-Joueur::Joueur(std::string _nom) : Joueur::Joueur(){
+Joueur::Joueur(std::string _nom, char _color) : Joueur::Joueur(){
 	nom = _nom;
 	set_label(nom);
+	color = _color;
 }
 
 void Joueur::majAffiche(){
