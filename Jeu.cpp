@@ -96,7 +96,7 @@ void Jeu::debutTour(){
     int valDes = de1.lancer() + de2.lancer();
     afficherPopUpDe(de1.getVal(), de2.getVal());
 
-    //valDes = 9;
+    //valDes = 4;
 
     if(jActuel.estEnPrison() && de1.getVal() == de2.getVal())//si le joueur fait un double, il sort immediatement de prison
         jActuel.sortDePrison();

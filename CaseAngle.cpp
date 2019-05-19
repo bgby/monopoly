@@ -5,21 +5,30 @@ CaseAngle::CaseAngle(char c) : Case::Case(){// 4 types possibles {'d' -> Depart,
 	typeCase = c;
 	switch(c){
 		case 'd':
-			set_label("Case Départ");
+			nom = "Case Départ";
+			set_label(nom);
 			break;
 
 		case 'p':
-			set_label("Case Prison");
+			nom = "Case Prison";
+			set_label(nom);
 			break;
 
 		case 's':
-			set_label("Case BDE");
+			nom = "Case BDE";
+			set_label(nom);
 			break;
 
 		case 'a':
-			set_label("Case Ascenseur");
+			nom = "Case Ascenseur";
+			set_label(nom);
 			break;
 	}
+}
+
+CaseAngle::CaseAngle(char c, int x, int y) : CaseAngle::CaseAngle(c){
+	coords[0] = x;
+	coords[1] = y;
 }
 
 void CaseAngle::effet(Joueur *j, Gtk::Window *fenetre){

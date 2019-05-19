@@ -9,6 +9,7 @@
 class CaseChance : public Case{
 	public:
 		CaseChance();
+		CaseChance(int x, int y);
 		void effet(Joueur *j, Gtk::Window *fenetre);
 		void majInfos(){};
 };

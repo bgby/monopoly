@@ -23,6 +23,9 @@ class Plateau : public Gtk::DrawingArea{
 		Case* getPCase(int idCase){return casesPlateau[idCase];}
 		void declencherEffet(int idCase, Joueur *j, Gtk::Window* fenetre);
 
+		//DESSIN
+		void dessinerPion(int idCase, Joueur* j);
+
 
 	protected:
 		bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;

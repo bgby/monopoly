@@ -7,6 +7,7 @@
 class CaseCrous : public Case{
 	public:
 		CaseCrous();
+		CaseCrous(std::string _nom, int x, int y);
 		int getLoyer(){return prix/4;};
 		int getPrix(){return prix;};
 		void setProprietaire(Joueur *j){proprietaire = j;};

@@ -23,10 +23,17 @@ class Case : public Gtk::Frame{
 
 		virtual void majInfos() = 0;
 
-	private:
+		int getX(){return coords[0];};
+		int getY(){return coords[1];};
+
+		std::string getNom(){return nom;};
+
+	protected:
 		int id;
 		static int next_id;
 		std::vector<Joueur*> listeVisiteurs;
+		std::string nom;
+		int coords[2];
 	
 };
 
