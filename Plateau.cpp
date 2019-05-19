@@ -69,7 +69,7 @@ Plateau::~Plateau(){/*
 
 bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
-  Glib::RefPtr<Gdk::Pixbuf> image = Gdk::Pixbuf::create_from_file("medias/robopolysansfondtext800.png");
+  Glib::RefPtr<Gdk::Pixbuf> image = Gdk::Pixbuf::create_from_file("medias/robopolysansfondprix800.png");
   // Draw the image at 110, 90, except for the outermost 10 pixels.
   Gdk::Cairo::set_source_pixbuf(cr, image);
   cr->rectangle(0, 0, image->get_width(), image->get_height());
