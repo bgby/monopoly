@@ -39,6 +39,8 @@ void CaseChance::effet(Joueur *j, Gtk::Window* fenetre){
 			dialogue.set_secondary_text("Vous fuyez le débat d'Hugo Simon\n Vous retournez vous coucher avec Firas sur la case Départ", false);
 			dialogue.run();
 			j->teleporter(0);
+			this->retirerVisiteur(j);
+			(this-id)->ajouterVisiteur(j);//PAS SUR
 			break;
 
 	}

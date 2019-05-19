@@ -7,8 +7,10 @@
 #include "CaseAngle.hpp"
 #include "CaseFrais.hpp"
 #include "CaseCrous.hpp"
+#include "Joueur.hpp"
 
 class Case;
+class Joueur;
 
 #include <gtkmm/drawingarea.h>
 #include <gdkmm/pixbuf.h>
@@ -24,7 +26,8 @@ class Plateau : public Gtk::DrawingArea{
 		void declencherEffet(int idCase, Joueur *j, Gtk::Window* fenetre);
 
 		//DESSIN
-		void dessinerPion(int idCase, Joueur* j);
+		void dessinerPion(const Cairo::RefPtr<Cairo::Context>& cr, Case* c, Joueur* j);
+		void refreshPlateau();
 
 
 	protected:

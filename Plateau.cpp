@@ -1,5 +1,7 @@
 #include "Plateau.hpp"
 
+#define RADIUS 10
+
 Plateau::Plateau(){
 	set_size_request(800,800);
 	//Création des 40 cases
@@ -77,9 +79,6 @@ bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   const int width = allocation.get_width();
   const int height = allocation.get_height();
 
-  //Player color
-  char color;
-
   // coordinates for the center of the window
   int xc, yc;
   xc = width / 2;
@@ -96,18 +95,11 @@ bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   cr->fill();
 
   //Tracage des visiteurs
-  /*
   for(unsigned c = 0; c < casesPlateau.size(); c++){
   	for(unsigned v = 0; v < casesPlateau[c]->getLenListeVisiteurs(); v++){
-  		color = casesPlateau[c]->getVisiteur(v)->getColor;
-  		switch(color){
-  			case 'r':
-
-  				break;
-  		}
+  		dessinerPion(cr, casesPlateau[c], casesPlateau[c]->getVisiteur(v));
   	}
   }
-  */
   cr->stroke();
   
   
@@ -123,6 +115,37 @@ void Plateau::declencherEffet(int idCase, Joueur *j, Gtk::Window* fenetre){
 	casesPlateau[idCase]->effet(j, fenetre);
 }
 
-void Plateau::dessinerPion(int idCase, Joueur* j){
-	
+void Plateau::dessinerPion(const Cairo::RefPtr<Cairo::Context>& cr, Case* c, Joueur* j){
+	char couleur = j->getColor();
+	switch(couleur){
+		case 'r':
+			cr->set_source_rgb(1., 0., 0.);
+			cr->arc(c->getX()+11.,c->getY()+11., RADIUS, 0., 2.*M_PI);
+			break;
+
+		case 'g':
+			cr->set_source_rgb(0., 1., 0.);
+			cr->arc(c->getX()+44.,c->getY()+11., RADIUS, 0., 2.*M_PI);
+			break;
+
+		case 'b':
+			cr->set_source_rgb(0., 0., 1.);
+			cr->arc(c->getX()+11.,c->getY()+44., RADIUS, 0., 2.*M_PI);
+			break;
+
+		case 'y':
+			cr->set_source_rgb(1., 1., 0.);
+			cr->arc(c->getX()+44.,c->getY()+44., RADIUS, 0., 2.*M_PI);
+			break;
+	}
+	cr->fill();
+}
+
+void Plateau::refreshPlateau(){
+    Glib::RefPtr<Gdk::Window> plat = get_window();
+    if (plat){
+        Gdk::Rectangle r(0, 0, get_allocation().get_width(),
+                get_allocation().get_height());
+        plat->invalidate_rect(r, false);
+    }
 }

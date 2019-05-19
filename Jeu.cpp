@@ -51,6 +51,9 @@ Jeu::Jeu(int nbJoueurs, std::string j1, std::string j2) : Jeu::Jeu(){
         vboxRight.pack_start(tabJoueurs[i]);
     }
 
+    for(unsigned i = 0; i<tabJoueurs.size(); i++)
+        plateau.getPCase(0)->ajouterVisiteur(&(tabJoueurs[i]));
+
     conteneurInfosGen.majJoueur(tabJoueurs[0]);
 }
 
@@ -62,6 +65,9 @@ Jeu::Jeu(int nbJoueurs, std::string j1, std::string j2, std::string j3) : Jeu::J
         vboxRight.pack_start(tabJoueurs[i]);
     }
 
+    for(unsigned i = 0; i<tabJoueurs.size(); i++)
+        plateau.getPCase(0)->ajouterVisiteur(&(tabJoueurs[i]));
+
     conteneurInfosGen.majJoueur(tabJoueurs[0]);
 }
 
@@ -72,6 +78,9 @@ Jeu::Jeu(int nbJoueurs, std::string j1, std::string j2, std::string j3, std::str
         tabJoueurs.push_back(Joueur(names[i], colors[i]));
         vboxRight.pack_start(tabJoueurs[i]);
     }
+
+    for(unsigned i = 0; i<tabJoueurs.size(); i++)
+        plateau.getPCase(0)->ajouterVisiteur(&(tabJoueurs[i]));
 
     conteneurInfosGen.majJoueur(tabJoueurs[0]);
 }
@@ -113,6 +122,7 @@ void Jeu::debutTour(){
     //conteneurInfosGen.majInfos(jActuel.getNom(), jActuel.getCaseActuel(), (plateau.getPCase(jActuel.getCaseActuel()))->getPrix(), std::string& _propCaseActuelle);
     
     plateau.declencherEffet(jActuel.getCaseActuel(), &jActuel, this);
+    plateau.refreshPlateau();
 
     for(unsigned i = 0; i<tabJoueurs.size(); i++)
         tabJoueurs[i].majAffiche();//METTRE A JOUR VARIABLE JOUEUR
