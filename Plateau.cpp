@@ -122,3 +122,7 @@ void Plateau::changerJoueurCase(int idAncienneCase, int idNouvelleCase, Joueur *
 void Plateau::declencherEffet(int idCase, Joueur *j, Gtk::Window* fenetre){
 	casesPlateau[idCase]->effet(j, fenetre);
 }
+
+void Plateau::dessinerPion(int idCase, Joueur* j){
+	
+}

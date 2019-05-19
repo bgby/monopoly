@@ -3,8 +3,9 @@
 CaseCrous::CaseCrous() : Case::Case(){
 	prix = 200;
 	proprietaire = NULL;
+	nom = "Case Crous";
 
-	set_label("Case Crous");
+	set_label(nom);
 
 	vbox = Gtk::VBox();
 
@@ -19,6 +20,12 @@ CaseCrous::CaseCrous() : Case::Case(){
 	add(vbox);
 
 	show_all();
+}
+
+CaseCrous::CaseCrous(std::string _nom, int x, int y) : CaseCrous::CaseCrous(){
+	nom = _nom;
+	coords[0] = x;
+	coords[1] = y;
 }
 
 void CaseCrous::effet(Joueur *j, Gtk::Window* fenetre){

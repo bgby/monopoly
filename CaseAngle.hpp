@@ -7,6 +7,7 @@
 class CaseAngle : public Case{
 	public:
 		CaseAngle(char c);
+		CaseAngle(char c, int x, int y);
 		char getTypeCase(){return typeCase;};
 		void effet(Joueur *j, Gtk::Window *fenetre);
 		void majInfos(){};

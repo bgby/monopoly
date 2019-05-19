@@ -5,8 +5,9 @@ CasePropriete::CasePropriete(int _prix) : Case::Case(){
 	prix = _prix;
 	nbMaisons = 0;
 	isFestival = false;
+	nom = "Case Salle de cours";
 
-	set_label("Case Salle de cours");
+	set_label(nom);
 
 	vbox = Gtk::VBox();
 
@@ -21,6 +22,12 @@ CasePropriete::CasePropriete(int _prix) : Case::Case(){
 	add(vbox);
 
 	show_all();
+}
+
+CasePropriete::CasePropriete(int _prix, std::string _nom, int x, int y) : CasePropriete::CasePropriete(_prix){
+	nom = _nom;
+	coords[0] = x;
+	coords[1] = y;
 }
 
 int CasePropriete::getLoyer(){

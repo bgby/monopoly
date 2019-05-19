@@ -7,6 +7,7 @@
 class CasePropriete : public Case {
 	public:
 		CasePropriete(int _prix);
+		CasePropriete(int _prix, std::string _nom, int x, int y);
 		int getPrix(){return prix;};
 		int getLoyer();
 		void setProprietaire(Joueur *j){proprietaire = j;};

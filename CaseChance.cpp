@@ -2,6 +2,13 @@
 
 CaseChance::CaseChance() : Case::Case(){
 	srand(time(NULL));
+	nom = "Case Chance";
+	set_label(nom);
+}
+
+CaseChance::CaseChance(int x, int y) : CaseChance::CaseChance(){
+	coords[0] = x;
+	coords[1] = y;
 }
 
 void CaseChance::effet(Joueur *j, Gtk::Window* fenetre){
