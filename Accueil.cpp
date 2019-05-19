@@ -52,7 +52,7 @@ Accueil::Accueil() : nbJoueur2("2 joueurs"), nbJoueur3("3 joueurs"), nbJoueur4("
 	tableau.attach(nomJoueur3, 2, 3, 2, 3, Gtk::SHRINK, Gtk::SHRINK, 10, 20);
 	tableau.attach(nomJoueur4, 3, 4, 2, 3, Gtk::SHRINK, Gtk::SHRINK, 10, 20);
 	
-	tableau.attach(boutonJouer, 3, 4, 3, 4, Gtk::SHRINK, Gtk::SHRINK, 20, 20);
+	tableau.attach(boutonJouer, 3, 4, 3, 4, Gtk::FILL, Gtk::FILL, 60, 60);
 	
 	tableau.attach(*imgFond, 0, 4, 0, 4); 
 	
@@ -100,8 +100,7 @@ void Accueil::get_Noms(){
 		}
 		
 		jeu->signal_hide().connect(sigc::mem_fun(*this, &Accueil::jeuClose)); //si on ferme la fenetre jeu on met le pointeur à 0
-		jeu->show();
-			
+		jeu->show();		
 }
 
 void Accueil::jeuClose(){
