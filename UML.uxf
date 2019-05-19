@@ -3,91 +3,124 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>768</x>
-      <y>536</y>
-      <w>224</w>
-      <h>88</h>
+      <x>960</x>
+      <y>856</y>
+      <w>488</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>Plateau
 --
-- listeCases : std::vector&lt;Case&gt;
-- deck : Deck
-- de : De
---</panel_attributes>
+- on_draw(cr : const Cairo::RefPtr&lt;Cairo::Context&gt;&amp;) : bool
+- casesPlateau : std::vector&lt;Case*&gt;
+--
++ Plateau()
++ changerJoueurCase(idAncienneCase : int, idNouvelleCase : int, j : Joueur*) : void
++ declencherEffet(idCase : int, j : Joueur, fenetre : Gtk::Window*) : void
++ dessinerPion(idCase : int, j : Joueur*)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>528</y>
-      <w>224</w>
-      <h>128</h>
+      <x>232</x>
+      <y>608</y>
+      <w>288</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>/Case/
 --
 - id : int
 _- next_id : int_
 - listeVisiteurs : std::vector&lt;Joueur*&gt;
+- nom : std::string
+- coords[2] : int
 --
 + ajouterVisiteur(j : Joueur*)
 + retirerVisiteur(j : Joueur*)
-/+ effet(j : Joueur*) : void/
+/+ effet(j : Joueur*, fenetre : Gtk::window*) : void/
+/+ majInfos() : void/
+
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
+      <x>304</x>
       <y>160</y>
-      <w>224</w>
-      <h>120</h>
+      <w>296</w>
+      <h>384</h>
     </coordinates>
     <panel_attributes>Joueur
 --
+- nom : std::string
+- color : char
 - argent : int
-- listeProprietes : std::list&lt;Case&gt;
+- etapeTour : int
+- listCaseJ : std::list&lt;Case*&gt;
 - caseactuel : int
-- nom : String
+- nbToursPrison : int
+- vbox : GTK::VBox
+- labelArgent : Gtk::Label
+- labelcaseActuel : Gtk::Label
+- labelNbProprietes : Gtk::Label
 --
-+ ajoutCase(c : Case) : void
-+ lancerDe();
-+ jouerTour();</panel_attributes>
++ Joueur()
++ Joueur(nom : std::string, color : char)
++ ajoutPropriete(casePropr : Case*) : void
++ suprPropriete(casePropr : Case*) : void
++ deplacer(val : int) : void
++ teleporter(id : int) : void
++ gagnerArgent(montant : int) : void
++ perdreArgent(montant : int) : void
++ payer(proprietaire : Joueur&amp;, argent : int) : void
++ estSolvable(montant : int) : bool
++ estEnPrison() : bool
++ partEnPrison() : void
++ sortDePrison() : void
++ decrementerTourPrison() : void
++ majAffiche() : void
++ perdu() : void
+
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>256</x>
-      <y>760</y>
-      <w>224</w>
-      <h>152</h>
+      <x>352</x>
+      <y>872</y>
+      <w>176</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>CasePropriete
 --
-- proprietaire : Joueur
+- proprietaire : Joueur*
 - prix : int
-- nbMaisons : int
-- isFestival : bool
+- vbox : Gtk::VBox
+- lPrix : Gtk::Label
+- lLoyer : Gtk::Label
+- lProp : Gtk::Label
 --
-+ getLoyer() : int
-+ effet(j : Joueur*) : void</panel_attributes>
++ effet(j : Joueur*) : void
++ majInfos() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>496</x>
-      <y>736</y>
-      <w>224</w>
-      <h>88</h>
+      <x>136</x>
+      <y>912</y>
+      <w>184</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>CaseAngle
 --
 - typeCase : char
 --
 + effet(j : Joueur*) : void
++ majInfos() : void
 --
 Prison, Depart, Ascenseur,
 Campagne BDE</panel_attributes>
@@ -96,75 +129,46 @@ Campagne BDE</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>648</y>
-      <w>152</w>
-      <h>128</h>
+      <x>232</x>
+      <y>744</y>
+      <w>40</w>
+      <h>184</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>170.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>30.0;10.0;10.0;210.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>768</y>
-      <w>224</w>
-      <h>120</h>
+      <x>32</x>
+      <y>784</y>
+      <w>160</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>CaseChance
 --
 
 --
-+ effet(j : Joueur*) : void</panel_attributes>
++ effet(j : Joueur*) : void
++ majInfos : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>112</x>
-      <y>632</y>
-      <w>304</w>
-      <h>152</h>
+      <x>144</x>
+      <y>712</y>
+      <w>104</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>360.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>768</x>
-      <y>680</y>
-      <w>248</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>Deck
---
-- listeCartes : std::vector&lt;CartesChance&gt;
---
-+ melanger() : void</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>760</x>
-      <y>824</y>
-      <w>248</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>/CartesChance/
---
-- msg : std::String
---
-+ effet()</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>110.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>552</y>
+      <y>624</y>
       <w>176</w>
       <h>120</h>
     </coordinates>
@@ -182,143 +186,118 @@ Campagne BDE</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>168</x>
-      <y>600</y>
-      <w>248</w>
-      <h>24</h>
+      <y>672</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>290.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>80.0;20.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
-      <y>568</y>
-      <w>168</w>
-      <h>32</h>
+      <x>512</x>
+      <y>648</y>
+      <w>464</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
 m2=n</panel_attributes>
-    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>560.0;310.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>768</x>
-      <y>176</y>
-      <w>248</w>
-      <h>176</h>
+      <x>960</x>
+      <y>200</y>
+      <w>296</w>
+      <h>336</h>
     </coordinates>
     <panel_attributes>Jeu
 --
 - plateauDeJeu : Plateau
-- listeJoueur: std::vector&lt;Joueur&gt;
+- tabJoueurs: std::vector&lt;Joueur&gt;
 - conteneurBoutons : ConteneurBoutons
 - conteneurInfosGen : ConteneurInfosGen
+- idJoueurActuel : int
+- caseActuelle : Case*
 - vboxRight : Gtk::VBox
 - vboxLeft : Gtk::VBox
 - hboxMain : Gtk::HBox
+- de1 : De
+- de2 : De
 --
-+ tour() : void
-+ main()</panel_attributes>
++ Jeu()
++ Jeu(nbJoueurs, j1 : std::string, j2 : std::string)
++ Jeu(nbJoueurs, j1 : std::string, j2 : std::string,
+j3 : std::string)
++ Jeu(nbJoueurs, j1 : std::string, j2 : std::string,
+j3 : std::string, j4 : std::string)
++ debutTour() : void
++ achat() : void
++ finTour() : void
++ afficherPoopUpDe(val1 : int, val2 : int) : void
++ majAffichageCase(idCase : int)
++ finJeu() : bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>872</x>
-      <y>344</y>
+      <x>1064</x>
+      <y>528</y>
       <w>24</w>
-      <h>208</h>
+      <h>344</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
 m2=1
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;410.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>880</x>
-      <y>760</y>
+      <x>968</x>
+      <y>528</y>
       <w>24</w>
-      <h>80</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
-m2=n</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+m2=2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>688</x>
-      <y>216</y>
+      <x>360</x>
+      <y>744</y>
       <w>96</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=1
-m2=n</panel_attributes>
-    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>600</x>
-      <y>648</y>
-      <w>24</w>
-      <h>104</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
-      <y>272</y>
+      <x>312</x>
+      <y>536</y>
       <w>24</w>
-      <h>272</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1
 m2=n</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>184</x>
-      <y>160</y>
-      <w>160</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>IA
---
-
---
-+ jouerTour();</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>336</x>
-      <y>216</y>
-      <w>152</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>816</x>
-      <y>104</y>
+      <x>1048</x>
+      <y>120</y>
       <w>120</w>
       <h>32</h>
     </coordinates>
@@ -328,19 +307,19 @@ m2=n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>872</x>
-      <y>128</y>
+      <x>1104</x>
+      <y>144</y>
       <w>24</w>
-      <h>64</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>528</x>
-      <y>104</y>
+      <x>360</x>
+      <y>96</y>
       <w>120</w>
       <h>32</h>
     </coordinates>
@@ -350,19 +329,19 @@ m2=n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>128</y>
+      <x>408</x>
+      <y>120</y>
       <w>24</w>
-      <h>48</h>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1048</x>
-      <y>560</y>
+      <x>1128</x>
+      <y>800</y>
       <w>120</w>
       <h>32</h>
     </coordinates>
@@ -372,130 +351,79 @@ m2=n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>984</x>
-      <y>568</y>
-      <w>80</w>
-      <h>24</h>
+      <x>1176</x>
+      <y>824</y>
+      <w>24</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1104</x>
-      <y>88</y>
-      <w>224</w>
-      <h>128</h>
+      <x>1280</x>
+      <y>104</y>
+      <w>208</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>ConteneurBoutons
 --
 - boutonLancerDes : Gtk::Button
 - boutonAcheter : Gtk::Button
-- boutonVendreAutre : Gtk::Button
 - boutonFinDuTour : Gtk::Button
---
-</panel_attributes>
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1104</x>
-      <y>232</y>
+      <x>1304</x>
+      <y>408</y>
       <w>224</w>
       <h>128</h>
     </coordinates>
     <panel_attributes>ConteneurInfosGen
 --
-- label : Gtk::Label
+- lNom : Gtk::Label
 --
++ majJoueur(: j : Joueur&amp;) : void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1008</x>
-      <y>264</y>
-      <w>112</w>
+      <x>1248</x>
+      <y>440</y>
+      <w>72</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
 m2=1
 </panel_attributes>
-    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1008</x>
+      <x>1248</x>
       <y>168</y>
-      <w>112</w>
-      <h>40</h>
+      <w>96</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
 m2=1
 </panel_attributes>
-    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+    <additional_attributes>10.0;50.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>592</x>
-      <y>288</y>
-      <w>120</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>Gtk::VBox</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>592</x>
-      <y>328</y>
-      <w>120</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>Gtk::HBox</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>704</x>
-      <y>288</y>
-      <w>80</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=1
-m2=2
-</panel_attributes>
-    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>704</x>
-      <y>328</y>
-      <w>80</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=1
-m2=1
-</panel_attributes>
-    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1152</x>
-      <y>0</y>
+      <x>1320</x>
+      <y>224</y>
       <w>120</w>
       <h>32</h>
     </coordinates>
@@ -505,8 +433,8 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1152</x>
-      <y>416</y>
+      <x>1352</x>
+      <y>576</y>
       <w>120</w>
       <h>32</h>
     </coordinates>
@@ -516,29 +444,293 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1200</x>
-      <y>352</y>
+      <x>1400</x>
+      <y>528</y>
       <w>24</w>
-      <h>80</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
 m2=1
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1208</x>
-      <y>24</y>
+      <x>1368</x>
+      <y>168</y>
       <w>32</w>
-      <h>80</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
 m2=4
 </panel_attributes>
-    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>632</x>
+      <y>72</y>
+      <w>256</w>
+      <h>296</h>
+    </coordinates>
+    <panel_attributes>Accueil
+--
+- jeu : Jeu*
+- tableau : Gtk::Table
+- msgBienvenue : Gtk::Label;
+- nbJoueur2 : Gtk::RadioButton
+- nbJoueur3 : Gtk::RadioButton
+- nbJoueur4 : Gtk::RadioButton
+- nomJoeur1 : Gtk::Entry
+- nomJoeur2 : Gtk::Entry
+- nomJoeur3 : Gtk::Entry
+- nomJoeur4 : Gtk::Entry
+- joueur1 : std::string
+- joueur2 : std::string
+- joueur3 : std::string
+- joueur4 : std::string
+- bontonJoeur : Gtk::Button
+- imgFond : Gtk::Image*
+- tabNom : std::vector&lt;std::string*&gt;
+--
++ Accueil()
++ on_clicked(val : int) : void
++ jeuClose() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>568</x>
+      <y>832</y>
+      <w>160</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>CaseFrais
+--
+- prix : int
+- lPrix : Gtk::Label
+--
++ effet(j : Joueur*) : void
++ majInfos() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>744</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>304</x>
+      <y>1096</y>
+      <w>160</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>CaseCrous
+--
+
+--
++ effet(j : Joueur*) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>368</x>
+      <y>1008</y>
+      <w>56</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>496</x>
+      <y>1080</y>
+      <w>160</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>CaseSalle
+--
+- nbMaisons : int
+- isFestival
+--
++ effet(j : Joueur*) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>1008</y>
+      <w>80</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1344</x>
+      <y>336</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Gtk::Frame</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1320</x>
+      <y>40</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Gtk::VButtonBox</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1376</x>
+      <y>64</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1400</x>
+      <y>360</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>632</y>
+      <w>160</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>De
+--
+- val : int
+--
++ lancer() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1112</x>
+      <y>632</y>
+      <w>160</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>PopUpDe
+--
+- boiteV : Gtk::Box*
+- imgDes1 : Gtk::Image*
+- imgDes2 : Gtk::Image*
+- nomImage1 : std::string
+- nomImage2 : std::string
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1176</x>
+      <y>528</y>
+      <w>24</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>704</x>
+      <y>0</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Gtk::Window</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>752</x>
+      <y>24</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>880</x>
+      <y>200</y>
+      <w>96</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1344</x>
+      <y>664</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Gtk::Dialog</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1264</x>
+      <y>672</y>
+      <w>96</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
