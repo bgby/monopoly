@@ -38,9 +38,42 @@ Jeu::Jeu(){
 
     add(hboxMain);
 
-    show_all();
+    show_all_children();
 
     idJoueurActuel = 0;
+}
+
+Jeu::Jeu(int nbJoueurs, std::string j1, std::string j2) : Jeu::Jeu(){
+    std::string names[nbJoueurs] = {j1, j2};
+    char colors[4] = {'r', 'g'};
+    for(int i = 0; i < nbJoueurs; i++){
+        tabJoueurs.push_back(Joueur(names[i], colors[i]));
+        vboxRight.pack_start(tabJoueurs[i]);
+    }
+
+    conteneurInfosGen.majJoueur(tabJoueurs[0]);
+}
+
+Jeu::Jeu(int nbJoueurs, std::string j1, std::string j2, std::string j3) : Jeu::Jeu(){
+    std::string names[nbJoueurs] = {j1, j2, j3};
+    char colors[nbJoueurs] = {'r', 'g', 'b'};
+    for(int i = 0; i < nbJoueurs; i++){
+        tabJoueurs.push_back(Joueur(names[i], colors[i]));
+        vboxRight.pack_start(tabJoueurs[i]);
+    }
+
+    conteneurInfosGen.majJoueur(tabJoueurs[0]);
+}
+
+Jeu::Jeu(int nbJoueurs, std::string j1, std::string j2, std::string j3, std::string j4) : Jeu::Jeu(){
+    std::string names[nbJoueurs] = {j1, j2, j3, j4};
+    char colors[4] = {'r', 'g', 'b', 'y'};
+    for(int i = 0; i < nbJoueurs; i++){
+        tabJoueurs.push_back(Joueur(names[i], colors[i]));
+        vboxRight.pack_start(tabJoueurs[i]);
+    }
+
+    conteneurInfosGen.majJoueur(tabJoueurs[0]);
 }
 
 void Jeu::debutTour(){
@@ -147,17 +180,6 @@ void Jeu::afficherPopUpDe(int val1, int val2){
 	des.run();
 }
 		
-Jeu::Jeu(int nbJoueurs) : Jeu::Jeu(){
-    std::string names[4] = {"Nao", "Pepper", "Baxter", "Roomba"};
-    char colors[4] = {'r', 'g', 'b', 'y'};
-    for(int i = 0; i < nbJoueurs; i++){
-        tabJoueurs.push_back(Joueur(names[i], colors[i]));
-        vboxRight.pack_start(tabJoueurs[i]);
-    }
-
-    conteneurInfosGen.majJoueur(tabJoueurs[0]);
-}
-
 void Jeu::majAffichageCase(int idCase){
     vboxLeft.remove(*caseActuelle);
     caseActuelle = plateau.getPCase(idCase);

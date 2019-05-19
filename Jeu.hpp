@@ -21,7 +21,9 @@ class Jeu : public Gtk::Window{
 
 	public:
 		Jeu();
-		Jeu(int nbJoueurs);
+		Jeu(int nbJoueurs, std::string j1, std::string j2);
+		Jeu(int nbJoueurs, std::string j1, std::string j2, std::string j3);
+		Jeu(int nbJoueurs, std::string j1, std::string j2, std::string j3, std::string j4);
 		void debutTour();
 		void achat();
 		void finTour();
