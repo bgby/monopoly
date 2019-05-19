@@ -1,9 +1,10 @@
 #include "Accueil.hpp"
 #include <iostream>
 
-Accueil::Accueil() : nbJoueur2("2 joueur"), nbJoueur3("3 joueur"), nbJoueur4("4 joueur"), boutonJouer("Jouer"){
+Accueil::Accueil() : nbJoueur2("2 joueurs"), nbJoueur3("3 joueurs"), nbJoueur4("4 joueurs"), boutonJouer("Jouer"){
 	set_title("ROBOPOLY"); 
 	resize(405,405);
+	set_resizable(false);
 	
 	//création d'un tableau
 	tableau = Gtk::Table(4,4);
@@ -11,10 +12,10 @@ Accueil::Accueil() : nbJoueur2("2 joueur"), nbJoueur3("3 joueur"), nbJoueur4("4 
 	//hButtonBox.set_layout(Gtk::BUTTONBOX_CENTER, 10);
 	
 	//message d'accueil
-	msgBienvenue = Gtk::Label("Bienvenue dans le Robopoly ! Sélectionez le nombre de Joueurs et leur nom");
+	msgBienvenue = Gtk::Label("Bienvenue dans le Robopoly ! Sélectionnez le nombre de joueurs et indiquez leur nom");
 	
 	//image de fond
-	imgFond = Gtk::manage(new Gtk::Image("medias/fondAccueil1.png"));
+	imgFond = Gtk::manage(new Gtk::Image("medias/fondAccueil2.png"));
 	
 	//buttons radio
 	nbJoueur3.join_group(nbJoueur2);
@@ -40,7 +41,7 @@ Accueil::Accueil() : nbJoueur2("2 joueur"), nbJoueur3("3 joueur"), nbJoueur4("4 
 	nomJoueur3.set_text("J3");
 	nomJoueur4.set_text("J4");
 	
-	//ajout de tout les widget dans le tableau
+	//ajout de tous les widgets dans le tableau
 	tableau.attach(msgBienvenue, 0, 4, 0, 1, Gtk::SHRINK, Gtk::SHRINK, 60, 30);
 	tableau.attach(nbJoueur2, 0, 2, 1, 2, Gtk::SHRINK, Gtk::SHRINK, 60, 30);
 	tableau.attach(nbJoueur3, 1, 3, 1, 2, Gtk::SHRINK, Gtk::SHRINK, 30, 20);
@@ -75,7 +76,7 @@ void Accueil::on_clicked(int val){
 //récupération du nom des joueurs
 void Accueil::get_Noms(){
 	
-		if(jeu != 0) //Si on a deja créer la fenetre jeu
+		if(jeu != 0) //Si on a deja créé la fenetre jeu
 			return;
 		switch(nbJoueurs){
 			case 2:
