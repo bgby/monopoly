@@ -4,7 +4,7 @@
 
 Joueur::Joueur(){
 	nom = "NON DEFINI";
-	argent = 1000;
+	argent = 800;
 	loose = false;
 	nbToursPrison = 0;
 	caseActuel = 0; //case départ (de 0 jusqu'a 39)

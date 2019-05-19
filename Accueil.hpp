@@ -12,8 +12,6 @@
 
 #include "Jeu.hpp"
 
-#include "DialogSaisie.hpp"
-
 class Accueil : public Gtk::Window{
 
 	public:

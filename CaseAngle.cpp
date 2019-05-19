@@ -57,14 +57,17 @@ void CaseAngle::effet(Joueur *j, Gtk::Window *fenetre){
 			break;
 
 		case 's':
+			j->gagnerArgent(200);
 			dialogue.set_title("Information");
-			dialogue.set_secondary_text("Le BDE organise un évènement dans une de vos salle \n le loyer de la case de votre choix triple", false);
+			dialogue.set_secondary_text("Le BDE organise un évènement dans une de vos salle \n Vous gagnez 200", false);
 			dialogue.run();
 			break;
 
 		case 'a':
+			j->partEnPrison();
+			j->decrementerTourPrison();
 			dialogue.set_title("Information");
-			dialogue.set_secondary_text("Vous prenez l'ascenseur de Polytech \n Vous pouvez vous déplacer sur n'importe quelle case", false);
+			dialogue.set_secondary_text("Vous prenez l'ascenseur de Polytech \n Sa lenteur vous fait perdre 1 tour !", false);
 			dialogue.run();
 			break;
 	}
