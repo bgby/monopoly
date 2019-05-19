@@ -1,6 +1,6 @@
 #include "CaseCrous.hpp"
 
-CaseCrous::CaseCrous() : Case::Case(){
+CaseCrous::CaseCrous() : CasePropriete::CasePropriete(){
 	prix = 200;
 	proprietaire = NULL;
 	nom = "Case Crous";
@@ -34,12 +34,4 @@ void CaseCrous::effet(Joueur *j, Gtk::Window* fenetre){
 		if(proprietaire->getNom() != j->getNom()){
 			j->payer(*proprietaire, prix/4);
 		}
-}
-
-void CaseCrous::majInfos(){
-	lLoyer.set_label("Prix : " + std::to_string(getLoyer()));
-	if(proprietaire != NULL)
-		lProp.set_label("Proprietaire : " + proprietaire->getNom());
-	else
-		lProp.set_label("Proprietaire : Aucun");
 }

@@ -21,6 +21,9 @@ CaseChance.o: CaseChance.cpp CaseChance.hpp
 CaseCrous.o: CaseCrous.cpp CaseCrous.hpp
 	g++ -o CaseCrous.o -c CaseCrous.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
+CaseSalle.o: CaseSalle.cpp CaseSalle.hpp
+	g++ -o CaseSalle.o -c CaseSalle.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
+
 CaseAngle.o: CaseAngle.cpp CaseAngle.hpp
 	g++ -o CaseAngle.o -c CaseAngle.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 	
@@ -45,8 +48,8 @@ Jeu.o: Jeu.cpp Jeu.hpp
 main.o: main.cpp
 	g++ -o main.o -c main.cpp -W -Wall `pkg-config gtkmm-3.0 --cflags --libs`
 
-main: main.o Jeu.o ConteneurBoutons.o ConteneurInfosGen.o DialogSaisie.o Accueil.o Plateau.o Joueur.o Case.o CasePropriete.o CaseAngle.o CaseCrous.o CaseChance.o CaseFrais.o PopUpDe.o
-	g++ -o monopoly main.o Jeu.o ConteneurBoutons.o ConteneurInfosGen.o Plateau.o DialogSaisie.o Joueur.o Accueil.o Case.o CasePropriete.o CaseAngle.o CaseCrous.o CaseChance.o CaseFrais.o PopUpDe.o `pkg-config gtkmm-3.0 --cflags --libs`
+main: main.o Jeu.o ConteneurBoutons.o ConteneurInfosGen.o DialogSaisie.o Accueil.o Plateau.o Joueur.o Case.o CasePropriete.o CaseSalle.o CaseAngle.o CaseCrous.o CaseChance.o CaseFrais.o PopUpDe.o
+	g++ -o monopoly main.o Jeu.o ConteneurBoutons.o ConteneurInfosGen.o Plateau.o DialogSaisie.o Joueur.o Accueil.o Case.o CasePropriete.o CaseSalle.o CaseAngle.o CaseCrous.o CaseChance.o CaseFrais.o PopUpDe.o `pkg-config gtkmm-3.0 --cflags --libs`
 
 clean:
 	rm -rf *.o monopoly

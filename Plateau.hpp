@@ -4,6 +4,7 @@
 #include "De.hpp"
 #include "CaseChance.hpp"
 #include "CasePropriete.hpp"
+#include "CaseSalle.hpp"
 #include "CaseAngle.hpp"
 #include "CaseFrais.hpp"
 #include "CaseCrous.hpp"
@@ -27,6 +28,7 @@ class Plateau : public Gtk::DrawingArea{
 
 		//DESSIN
 		void dessinerPion(const Cairo::RefPtr<Cairo::Context>& cr, Case* c, Joueur* j);
+		void dessinerProp(const Cairo::RefPtr<Cairo::Context>& cr, Case* c, Joueur* j);
 		void refreshPlateau();
 
 
