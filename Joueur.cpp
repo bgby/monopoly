@@ -4,7 +4,7 @@
 
 Joueur::Joueur(){
 	nom = "NON DEFINI";
-	argent = 200;
+	argent = 1000;
 	loose = false;
 	nbToursPrison = 0;
 	caseActuel = 0; //case départ (de 0 jusqu'a 39)
@@ -107,8 +107,10 @@ void Joueur::payer(Joueur& proprietaire, int montant){
 //Si le joueur à perdu on lui supprime ses propriétés
 void Joueur::perdu(){
 	for(std::list<CasePropriete*>::const_iterator it = listCaseJ.begin(); it != listCaseJ.end(); ++it){
-		(*it)->setProprietaire(NULL);
-		listCaseJ.erase(it);
+		if(*it != NULL)
+			(*it)->setProprietaire(NULL);
+		//listCaseJ.erase(it);
 	}
+	listCaseJ.clear();
 	loose = true;
 }

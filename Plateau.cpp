@@ -8,51 +8,77 @@ Plateau::Plateau(){
 	
 	//premiere rangée du bas 
 	casesPlateau.push_back(new CaseAngle('d', 719, 726)); //case départ
-	casesPlateau.push_back(new CaseSalle(15, "65-66 RC05", 635, 726)); //65-66 RC05
-	casesPlateau.push_back(new CaseFrais(70, 570, 726)); //Frais de scolarité
-	casesPlateau.push_back(new CaseSalle(20, "65-66 RC07", 503, 726)); //65-66 RC07
+	casesProp.push_back(new CaseSalle(15, "65-66 RC05", 635, 726));//65-66 RC05
+		casesPlateau.push_back(casesProp.back());
+	casesPlateau.push_back(new CaseFrais(70, 570, 726)); //Frais de scolarite
+	casesProp.push_back(new CaseSalle(20, "65-66 RC07", 503, 726)); //65-66 RC07
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseChance(439, 726)); //Case chance 1
-	casesPlateau.push_back(new CaseCrous("Crous Cuvier", 371, 726)); //Crous Cuvier
-	casesPlateau.push_back(new CaseSalle(45, "56-66 105", 305, 726)); //56-66 105
+	casesProp.push_back(new CaseCrous("Crous Cuvier", 371, 726)); //Crous Cuvier
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(45, "56-66 105", 305, 726)); //56-66 105
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseFrais(110, 241, 726)); //Loyer
-	casesPlateau.push_back(new CaseSalle(55, "56-66 109", 174, 726)); //56-66 109
-	casesPlateau.push_back(new CaseSalle(65, "56-66 112", 108, 726)); //56-66 112
+	casesProp.push_back(new CaseSalle(55, "56-66 109", 174, 726)); //56-66 109
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(65, "56-66 112", 108, 726)); //56-66 112
+		casesPlateau.push_back(casesProp.back());
 	
 	//Rangée gauche
 	casesPlateau.push_back(new CaseAngle('p', 30, 726)); //Prison
-	casesPlateau.push_back(new CaseSalle(85, "55-56 101", 30, 636)); //55-56 101
+	casesProp.push_back(new CaseSalle(85, "55-56 101", 30, 636)); //55-56 101
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseChance(30, 569)); //Case chance 2
-	casesPlateau.push_back(new CaseSalle(95, "55-56 102", 30, 503)); //55-56 102
-	casesPlateau.push_back(new CaseSalle(110, "55-56 103", 30, 438)); //55-56 103
-	casesPlateau.push_back(new CaseCrous("Crous Censier", 30, 371)); //Crous Censier
-	casesPlateau.push_back(new CaseSalle(140, "Esclangon 201", 30, 305)); //Esclangon 201
+	casesProp.push_back(new CaseSalle(95, "55-56 102", 30, 503)); //55-56 102
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(110, "55-56 103", 30, 438)); //55-56 103
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseCrous("Crous Censier", 30, 371)); //Crous Censier
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(140, "Esclangon 201", 30, 305)); //Esclangon 201
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseFrais(110, 30, 238)); //Loyer
-	casesPlateau.push_back(new CaseSalle(150, "Esclangon 202", 30, 173)); //Esclangon 202
-	casesPlateau.push_back(new CaseSalle(180, "Esclangon 203", 30, 108)); //Esclangon 203
+	casesProp.push_back(new CaseSalle(150, "Esclangon 202", 30, 173)); //Esclangon 202
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(180, "Esclangon 203", 30, 108)); //Esclangon 203
+		casesPlateau.push_back(casesProp.back());
 	
 	//Rangée haute
 	casesPlateau.push_back(new CaseAngle('s', 30, 30)); //Evenement BDE
-	casesPlateau.push_back(new CaseSalle(210, "56-66 207", 109, 30)); //56-66 207
+	casesProp.push_back(new CaseSalle(210, "56-66 207", 109, 30)); //56-66 207
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseChance(173, 30)); //Case chance 3
-	casesPlateau.push_back(new CaseSalle(230, "56-66 211", 240, 30)); //56-66 211
-	casesPlateau.push_back(new CaseSalle(250, "56-66 213", 306, 30)); //56-66 213
-	casesPlateau.push_back(new CaseCrous("Atrium Café", 372, 30)); //Crous Atrium Cafe
-	casesPlateau.push_back(new CaseSalle(280, "Esclangon 304", 438, 30)); //Esclangon 304
-	casesPlateau.push_back(new CaseSalle(300, "Esclangon 306", 504, 30)); //Esclangon 306
+	casesProp.push_back(new CaseSalle(230, "56-66 211", 240, 30)); //56-66 211
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(250, "56-66 213", 306, 30)); //56-66 213
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseCrous("Atrium Café", 372, 30)); //Crous Atrium Cafe
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(280, "Esclangon 304", 438, 30)); //Esclangon 304
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(300, "Esclangon 306", 504, 30)); //Esclangon 306
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseFrais(110, 568, 30)); //Loyer
-	casesPlateau.push_back(new CaseSalle(310, "Esclangon 321", 635, 30)); //Esclangon 321
+	casesProp.push_back(new CaseSalle(310, "Esclangon 321", 635, 30)); //Esclangon 321
+		casesPlateau.push_back(casesProp.back());
 	
 	//Rangée droite
 	casesPlateau.push_back(new CaseAngle('a', 726, 30)); //Ascenseur
-	casesPlateau.push_back(new CaseSalle(340, "Esclangon 319", 726, 108)); //Esclangon 319
-	casesPlateau.push_back(new CaseSalle(360, "Esclangon 327", 726, 172)); //Esclangon 327
+	casesProp.push_back(new CaseSalle(340, "Esclangon 319", 726, 108)); //Esclangon 319
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseSalle(360, "Esclangon 327", 726, 172)); //Esclangon 327
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseChance(726, 239)); //Case chance 4
-	casesPlateau.push_back(new CaseSalle(370, "Esclangon 328", 726, 305)); //Esclangon 328
-	casesPlateau.push_back(new CaseCrous("Crous du Chatelet", 726, 371)); //Crous Chatelet
+	casesProp.push_back(new CaseSalle(370, "Esclangon 328", 726, 305)); //Esclangon 328
+		casesPlateau.push_back(casesProp.back());
+	casesProp.push_back(new CaseCrous("Crous du Chatelet", 726, 371)); //Crous Chatelet
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseFrais(110, 726, 439)); //Loyer
-	casesPlateau.push_back(new CaseSalle(410, "46-56 103", 726, 503)); //46-56 103
+	casesProp.push_back(new CaseSalle(410, "46-56 103", 726, 503)); //46-56 103
+		casesPlateau.push_back(casesProp.back());
 	casesPlateau.push_back(new CaseChance(726, 570)); //Case chance 5
-	casesPlateau.push_back(new CaseSalle(450, "Esclangon 324", 726, 636)); //Esclangon 324
+	casesProp.push_back(new CaseSalle(450, "Esclangon 324", 726, 636)); //Esclangon 324
+		casesPlateau.push_back(casesProp.back());
 
 
 }
@@ -98,12 +124,14 @@ bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   for(unsigned c = 0; c < casesPlateau.size(); c++){
   	for(unsigned v = 0; v < casesPlateau[c]->getLenListeVisiteurs(); v++){
   		dessinerPion(cr, casesPlateau[c], casesPlateau[c]->getVisiteur(v));
+  	}  	
+  }
+
+  for(unsigned c = 0; c < casesProp.size(); c++){
+  	if(casesProp[c]->getProprietaire() != NULL){
+  		dessinerProp(cr, casesProp[c], casesProp[c]->getProprietaire());
+  		cr->stroke();
   	}
-  	/*
-  	if(typeid(*casesPlateau[c]).name()=="CasePropriete")
-  		if ((CasePropriete*)casesPlateau[c]->getProprietaire != NULL)
-  			dessinerProp(cr, casesPlateau[c], casesPlateau[c]->getProprietaire);
-  	*/
   }
   cr->stroke();
   

@@ -27,7 +27,7 @@ void CaseChance::effet(Joueur *j, Gtk::Window* fenetre){
 			
 				j->perdreArgent(60);
 				dialogue.set_title("Information");
-				dialogue.set_secondary_text("Vous êtes trop bourré, vous offrez votre tournée générale\n Vous perdez 60", false);
+				dialogue.set_secondary_text("Vous n'avez plus les idées claires, vous offrez votre tournée générale\n Vous perdez 60", false);
 				dialogue.run();
 			}
 			break;
@@ -48,7 +48,7 @@ void CaseChance::effet(Joueur *j, Gtk::Window* fenetre){
 			dialogue.run();
 			j->teleporter(0);
 			this->retirerVisiteur(j);
-			(this-id)->ajouterVisiteur(j);//PAS SUR
+			//(this-id)->ajouterVisiteur(j);//PAS SUR
 			break;
 
 	}
