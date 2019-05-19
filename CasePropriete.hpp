@@ -3,6 +3,8 @@
 
 #include "Case.hpp"
 
+//class Case;
+
 class CasePropriete : public Case{
 	public:
 		CasePropriete();

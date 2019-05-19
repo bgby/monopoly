@@ -4,7 +4,8 @@
 #include <string>
 #include <vector>
 
-#include "Case.hpp"
+//#include "Case.hpp"
+//#include "CasePropriete.hpp"
 
 #include <list>
 
@@ -12,7 +13,8 @@
 #include <gtkmm/box.h>
 #include <gtkmm/label.h>
 
-class Case;
+//class Case;
+class CasePropriete;
 
 class Joueur : public Gtk::Frame{
 	public:
@@ -22,8 +24,8 @@ class Joueur : public Gtk::Frame{
 		
 		//Proprietes
 		int getNbProprietes() const {return listCaseJ.size();}
-		void ajoutPropriete(Case* casePropr);
-		void suprPropriete(Case* casePropr);
+		void ajoutPropriete(CasePropriete* casePropr);
+		void suprPropriete(CasePropriete* casePropr);
 		
 		//Déplacement
 		void deplacer(int val);
@@ -71,7 +73,7 @@ class Joueur : public Gtk::Frame{
 		int argent;
 		int etapeTour;//decrit l'etape où il en est dans son tour de jeu, 0 : n'a pas lancé les dés, 1 : n'a pas encore décidé d'acheter, 2 : a déjà acheté
 		int caseActuel;
-		std::list<Case*> listCaseJ;
+		std::list<CasePropriete*> listCaseJ;
 		int nbToursPrison; //Nombre de tour qui lui reste en prison (0 de base, passe a 3 sur la case prison)
 		
 

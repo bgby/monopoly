@@ -3,7 +3,7 @@
 
 #include "De.hpp"
 #include "CaseChance.hpp"
-#include "CasePropriete.hpp"
+//#include "CasePropriete.hpp"
 #include "CaseSalle.hpp"
 #include "CaseAngle.hpp"
 #include "CaseFrais.hpp"

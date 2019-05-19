@@ -1,5 +1,7 @@
 #include "Joueur.hpp"
 
+#include "CasePropriete.hpp"
+
 Joueur::Joueur(){
 	nom = "NON DEFINI";
 	argent = 200;
@@ -61,12 +63,12 @@ void Joueur::teleporter(int id){
 	}
 }
 
-void Joueur::ajoutPropriete(Case* casePropr){
+void Joueur::ajoutPropriete(CasePropriete* casePropr){
 	listCaseJ.push_back(casePropr);
 }
 
-void Joueur::suprPropriete(Case* casePropr){
-	for(std::list<Case*>::const_iterator it = listCaseJ.begin(); it != listCaseJ.end(); ++it){
+void Joueur::suprPropriete(CasePropriete* casePropr){
+	for(std::list<CasePropriete*>::const_iterator it = listCaseJ.begin(); it != listCaseJ.end(); ++it){
 		if( (*it)->getId() == casePropr->getId()){
 			listCaseJ.erase(it);
 		}
@@ -88,7 +90,7 @@ void Joueur::payer(Joueur& proprietaire, int montant){
 
 //Si le joueur à perdu on lui suprime ses propriétés
 void Joueur::perdu(){
-	for(std::list<Case*>::const_iterator it = listCaseJ.begin(); it != listCaseJ.end(); ++it){
+	for(std::list<CasePropriete*>::const_iterator it = listCaseJ.begin(); it != listCaseJ.end(); ++it){
 		(*it)->retirerVisiteur(this);
 		listCaseJ.erase(it);
 	}
