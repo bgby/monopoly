@@ -733,4 +733,17 @@ m2=1
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
   </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>592</x>
+      <y>432</y>
+      <w>384</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=2..4</panel_attributes>
+    <additional_attributes>460.0;10.0;10.0;10.0</additional_attributes>
+  </element>
 </diagram>
