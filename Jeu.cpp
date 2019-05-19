@@ -149,7 +149,9 @@ void Jeu::achat(){
         jActuel.perdreArgent(caseAchat->getPrix());
     }
     else if(!jActuel.estSolvable(caseAchat->getPrix())){ //si le joueur n'est pas sovable et qu'il veux acheter il a perdu
-		jActuel.perdu();
+		popUpInfos.set_title("Action impossible");
+        popUpInfos.set_secondary_text("Vous n'avez pas assez d'argent");
+        popUpInfos.run();
 	}
     else{
         popUpInfos.set_title("Action impossible");
@@ -174,6 +176,7 @@ void Jeu::finTour(){
 
     tabJoueurs[idJoueurActuel].setEtapeTour(0);//On remet le compteur à 0 en fin de tour
 	
+	/*
 	//On cherche un joueur qui n'a pas perdu
     ++idJoueurActuel;
     idJoueurActuel = idJoueurActuel % tabJoueurs.size();
@@ -190,6 +193,10 @@ void Jeu::finTour(){
         popUpInfos.run();
         return;
 	}
+	*/
+	++idJoueurActuel;
+	idJoueurActuel = idJoueurActuel % tabJoueurs.size();
+	
     majAffichageCase(tabJoueurs[idJoueurActuel].getCaseActuel());
     conteneurInfosGen.majJoueur(tabJoueurs[idJoueurActuel]);
 
