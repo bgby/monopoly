@@ -129,6 +129,7 @@ bool Plateau::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 
   for(unsigned c = 0; c < casesProp.size(); c++){
   	if(casesProp[c]->getProprietaire() != NULL){
+  		cr->set_line_width(4.0);
   		dessinerProp(cr, casesProp[c], casesProp[c]->getProprietaire());
   		cr->stroke();
   	}

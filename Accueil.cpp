@@ -2,7 +2,8 @@
 #include <iostream>
 
 Accueil::Accueil() : nbJoueur2("2 joueurs"), nbJoueur3("3 joueurs"), nbJoueur4("4 joueurs"), boutonJouer("Jouer"){
-	set_title("ROBOPOLY"); 
+	set_title("ROBOPOLY");
+	set_icon_from_file("medias/pepper-head.png"); 
 	resize(405,405);
 	set_resizable(false);
 	

@@ -168,12 +168,12 @@ void Jeu::achat(){
     }
     else if(!jActuel.estSolvable(caseAchat->getPrix())){ //si le joueur n'est pas sovable et qu'il veux acheter il a perdu
 		popUpInfos.set_title("Action impossible");
-        popUpInfos.set_secondary_text("Vous n'avez pas assez d'argent");
+        popUpInfos.set_secondary_text("Action impossible");
         popUpInfos.run();
 	}
     else{
         popUpInfos.set_title("Action impossible");
-        popUpInfos.set_secondary_text("La case a déjà un propriétaire !");
+        popUpInfos.set_secondary_text("Action impossible");
         popUpInfos.run();
     }
     jActuel.majAffiche();
@@ -213,6 +213,7 @@ void Jeu::finTour(){
 		popUpInfos.set_title("Victoire !!");
         popUpInfos.set_secondary_text("Le joueur : " + tabJoueurs[idJoueurActuel].getNom() + " a gagné !");
         popUpInfos.run();
+        close();
         return;
 	}
 	
