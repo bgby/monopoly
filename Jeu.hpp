@@ -29,6 +29,7 @@ class Jeu : public Gtk::Window{
 		void finTour();
 		void afficherPopUpDe(int val1, int val2);
 		void majAffichageCase(int idCase);
+		bool finJeu();
 		
 
 	private:

@@ -1,4 +1,5 @@
 #include "Jeu.hpp"
+#include "Accueil.hpp"
 
 Jeu::Jeu(){
 	caseActuelle = plateau.getPCase(0);
@@ -122,7 +123,13 @@ void Jeu::debutTour(){
     //conteneurInfosGen.majInfos(jActuel.getNom(), jActuel.getCaseActuel(), (plateau.getPCase(jActuel.getCaseActuel()))->getPrix(), std::string& _propCaseActuelle);
     
     plateau.declencherEffet(jActuel.getCaseActuel(), &jActuel, this);
+    
     plateau.refreshPlateau();
+    
+    //On vérifie que le joueur n'a pas perdu
+    if(jActuel.getLoose() == true){
+		finTour();
+	}
 
     for(unsigned i = 0; i<tabJoueurs.size(); i++)
         tabJoueurs[i].majAffiche();//METTRE A JOUR VARIABLE JOUEUR
@@ -135,7 +142,6 @@ void Jeu::achat(){
     Gtk::MessageDialog popUpInfos(*this, "Information", false);
 
     if(jActuel.getEtapeTour() != 1){
-        //std::cout << "Vous n'avez pas encore lancé les dés ou vous avez déjà cliqué sur Acheter !" << std::endl;
         popUpInfos.set_title("Action impossible");
         popUpInfos.set_secondary_text("Vous n'avez pas encore lancé les dés ou vous avez déjà cliqué sur Acheter !");
         popUpInfos.run();
@@ -153,14 +159,20 @@ void Jeu::achat(){
         caseAchat->setProprietaire(&jActuel);
         jActuel.perdreArgent(caseAchat->getPrix());
     }
+    else if(!jActuel.estSolvable(caseAchat->getPrix())){ //si le joueur n'est pas sovable et qu'il veux acheter il a perdu
+		popUpInfos.set_title("Action impossible");
+        popUpInfos.set_secondary_text("Vous n'avez pas assez d'argent");
+        popUpInfos.run();
+	}
     else{
-        //std::cout << "Vous n'avez pas assez d'argent ou la case a déjà un propriétaire !" << std::endl;
         popUpInfos.set_title("Action impossible");
-        popUpInfos.set_secondary_text("Vous n'avez pas assez d'argent ou la case a déjà un propriétaire !");
+        popUpInfos.set_secondary_text("La case a déjà un propriétaire !");
         popUpInfos.run();
     }
     jActuel.majAffiche();
     majAffichageCase(jActuel.getCaseActuel());
+    
+    finTour();
 }
 
 void Jeu::finTour(){
@@ -174,13 +186,48 @@ void Jeu::finTour(){
     }
 
     tabJoueurs[idJoueurActuel].setEtapeTour(0);//On remet le compteur à 0 en fin de tour
-
-    idJoueurActuel++;
+	
+	/*
+	//On cherche un joueur qui n'a pas perdu
+    ++idJoueurActuel;
     idJoueurActuel = idJoueurActuel % tabJoueurs.size();
+    while(tabJoueurs[idJoueurActuel].getLoose() == true){
+		++idJoueurActuel;
+		idJoueurActuel = idJoueurActuel % tabJoueurs.size();
+	}
+	idJoueurActuel = idJoueurActuel % tabJoueurs.size();
+	
+	//si c'est le dernier c'est la fin du jeu
+	if(finJeu()){
+		popUpInfos.set_title("Victoire !!");
+        popUpInfos.set_secondary_text("Le joeur : " + tabJoueurs[idJoueurActuel].getNom() + " à gagné !");
+        popUpInfos.run();
+        return;
+	}
+	*/
+	++idJoueurActuel;
+	idJoueurActuel = idJoueurActuel % tabJoueurs.size();
+	
     majAffichageCase(tabJoueurs[idJoueurActuel].getCaseActuel());
     conteneurInfosGen.majJoueur(tabJoueurs[idJoueurActuel]);
+
 }
 	
+bool Jeu::finJeu(){
+	int nbPerdu = 0;
+	for(unsigned int i = 0; i < tabJoueurs.size(); i++){
+		if(tabJoueurs[i].getLoose() == true){
+			++nbPerdu;
+		}
+	}
+	if(tabJoueurs.size() - nbPerdu == 1){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
 void Jeu::afficherPopUpDe(int val1, int val2){
 	std::string s1;
     std::string s2;

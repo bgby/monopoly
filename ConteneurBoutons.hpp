@@ -14,7 +14,6 @@ class ConteneurBoutons: public Gtk::VButtonBox{
 	private:
 		Gtk::Button boutonLancerDes;
 		Gtk::Button boutonAcheter;
-		Gtk::Button boutonVendreAutre;
 		Gtk::Button boutonFinDuTour;
 };
 

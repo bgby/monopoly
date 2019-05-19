@@ -58,8 +58,9 @@ class Joueur : public Gtk::Frame{
 		//Couleur
 		char getColor(){return color;};
 		
-
-
+		//fin du jeu
+		void perdu();
+		bool getLoose() const {return loose;}
 
 	private:
 		//int id;
@@ -79,6 +80,8 @@ class Joueur : public Gtk::Frame{
 		Gtk::Label labelArgent;
 		Gtk::Label labelcaseActuel;
 		Gtk::Label labelNbProprietes;
+		
+		bool loose;
 
 };
 

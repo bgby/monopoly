@@ -6,11 +6,9 @@ ConteneurBoutons::ConteneurBoutons(){
 
 	boutonLancerDes = Gtk::Button("Lancer les dés");
 	boutonAcheter = Gtk::Button("Acheter");
-	boutonVendreAutre = Gtk::Button("Vendre une propriété");
 	boutonFinDuTour = Gtk::Button("Fin du tour");
 
 	pack_start(boutonLancerDes);
 	pack_start(boutonAcheter);
-	pack_start(boutonVendreAutre);
 	pack_start(boutonFinDuTour);
 }

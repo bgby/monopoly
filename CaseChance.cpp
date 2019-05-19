@@ -17,11 +17,18 @@ void CaseChance::effet(Joueur *j, Gtk::Window* fenetre){
 	Gtk::MessageDialog dialogue(*fenetre, "Case Chance", false);
 	switch(alea){
 		case 0:
+			/*
 			//Perdre de l'argent
-			j->perdreArgent(60);
-			dialogue.set_title("Information");
-			dialogue.set_secondary_text("Vous êtes trop bourré, vous offrez votre tournée générale\n Vous perdez 60", false);
-			dialogue.run();
+			if(!j->estSolvable(60)){ //si le joueur n'est pas sovable il a perdu
+				j->perdu();
+			}
+			else{
+			*/
+				j->perdreArgent(60);
+				dialogue.set_title("Information");
+				dialogue.set_secondary_text("Vous êtes trop bourré, vous offrez votre tournée générale\n Vous perdez 60", false);
+				dialogue.run();
+			//}
 			break;
 
 		case 1:
