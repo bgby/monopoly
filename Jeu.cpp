@@ -42,6 +42,9 @@ Jeu::Jeu(){
     show_all_children();
 
     idJoueurActuel = 0;
+
+    conteneurBoutons.getBoutonAcheter().set_sensitive(false);
+    conteneurBoutons.getBoutonFinDuTour().set_sensitive(false);
 }
 
 Jeu::Jeu(int nbJoueurs, std::string j1, std::string j2) : Jeu::Jeu(){
@@ -135,6 +138,10 @@ void Jeu::debutTour(){
         tabJoueurs[i].majAffiche();//METTRE A JOUR VARIABLE JOUEUR
 
     jActuel.setEtapeTour(1);
+
+    conteneurBoutons.getBoutonLancerDes().set_sensitive(false);//on desactive le bouton lancer des une fois que le joueur a cliqué dessus
+    conteneurBoutons.getBoutonAcheter().set_sensitive(true);
+    conteneurBoutons.getBoutonFinDuTour().set_sensitive(true);
 }
 
 void Jeu::achat(){
@@ -172,7 +179,11 @@ void Jeu::achat(){
     jActuel.majAffiche();
     majAffichageCase(jActuel.getCaseActuel());
     
-    finTour();
+    conteneurBoutons.getBoutonLancerDes().set_sensitive(false);
+    conteneurBoutons.getBoutonAcheter().set_sensitive(false);
+    conteneurBoutons.getBoutonFinDuTour().set_sensitive(true);
+
+    //finTour();
 }
 
 void Jeu::finTour(){
@@ -187,7 +198,7 @@ void Jeu::finTour(){
 
     tabJoueurs[idJoueurActuel].setEtapeTour(0);//On remet le compteur à 0 en fin de tour
 	
-	/*
+	
 	//On cherche un joueur qui n'a pas perdu
     ++idJoueurActuel;
     idJoueurActuel = idJoueurActuel % tabJoueurs.size();
@@ -200,16 +211,20 @@ void Jeu::finTour(){
 	//si c'est le dernier c'est la fin du jeu
 	if(finJeu()){
 		popUpInfos.set_title("Victoire !!");
-        popUpInfos.set_secondary_text("Le joeur : " + tabJoueurs[idJoueurActuel].getNom() + " à gagné !");
+        popUpInfos.set_secondary_text("Le joueur : " + tabJoueurs[idJoueurActuel].getNom() + " a gagné !");
         popUpInfos.run();
         return;
 	}
-	*/
-	++idJoueurActuel;
-	idJoueurActuel = idJoueurActuel % tabJoueurs.size();
+	
+	//++idJoueurActuel;
+	//idJoueurActuel = idJoueurActuel % tabJoueurs.size();
 	
     majAffichageCase(tabJoueurs[idJoueurActuel].getCaseActuel());
     conteneurInfosGen.majJoueur(tabJoueurs[idJoueurActuel]);
+
+    conteneurBoutons.getBoutonLancerDes().set_sensitive(true);
+    conteneurBoutons.getBoutonAcheter().set_sensitive(false);
+    conteneurBoutons.getBoutonFinDuTour().set_sensitive(false);
 
 }
 	

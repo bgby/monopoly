@@ -20,15 +20,17 @@ CaseFrais::CaseFrais(int _prix, int x, int y) : CaseFrais::CaseFrais(_prix){
 void CaseFrais::effet(Joueur *j, Gtk::Window *fenetre){
 	Gtk::MessageDialog dialogue(*fenetre, "Frais à payer", false);
 	if(j != NULL){
-			/*
-			if(!j->estSolvable(prix)){ //si le joueur n'est pas sovable il a perdu
+			
+			if(!(j->estSolvable(prix))){ //si le joueur n'est pas solvable il a perdu
 				j->perdu();
+				retirerVisiteur(j);
+			}
 			else{
-			*/
+			
 				j->perdreArgent(prix);
 				dialogue.set_title("Information");
 				dialogue.set_secondary_text("Vous payez " + std::to_string(prix), false);
 				dialogue.run();
-			//}
+			}
 	}
 }

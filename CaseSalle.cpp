@@ -41,5 +41,10 @@ int CaseSalle::getLoyer(){
 
 void CaseSalle::effet(Joueur *j, Gtk::Window *fenetre){
 	if(proprietaire != NULL && proprietaire != j)
-		j->payer(*proprietaire, getLoyer());
+		if(j->estSolvable(getLoyer()))
+			j->payer(*proprietaire, getLoyer());
+		else{
+			j->perdu();
+			retirerVisiteur(j);
+		}
 }

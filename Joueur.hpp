@@ -79,6 +79,7 @@ class Joueur : public Gtk::Frame{
 
 		//Proprietes graphiques
 		Gtk::VBox vbox;
+		Gtk::Label labelColor;
 		Gtk::Label labelArgent;
 		Gtk::Label labelcaseActuel;
 		Gtk::Label labelNbProprietes;

@@ -15,10 +15,12 @@ Joueur::Joueur(){
 	vbox = Gtk::VBox();
 
 	//On créer des label
+	labelColor = Gtk::Label("Couleur :");
 	labelArgent = Gtk::Label("Argent : " + std::to_string(argent));
 	labelNbProprietes = Gtk::Label("Nombre de propriétés : " + std::to_string(listCaseJ.size()));
 	labelcaseActuel = Gtk::Label("Case actuelle : " + std::to_string(caseActuel));
 
+	vbox.pack_start(labelColor);
 	vbox.pack_start(labelArgent);
 	vbox.pack_start(labelNbProprietes);
 	vbox.pack_start(labelcaseActuel);
@@ -32,6 +34,20 @@ Joueur::Joueur(std::string _nom, char _color) : Joueur::Joueur(){
 	nom = _nom;
 	set_label(nom);
 	color = _color;
+	switch(color){
+		case 'r':
+			labelColor.set_markup("Couleur : <span color='red'>rouge</span>");
+			break;
+		case 'g':
+			labelColor.set_markup("Couleur : <span color='green'>vert</span>");
+			break;
+		case 'b':
+			labelColor.set_markup("Couleur : <span color='blue'>bleu</span>");
+			break;
+		case 'y':
+			labelColor.set_markup("Couleur : <span color='yellow'>jaune</span>");
+			break;
+	}
 }
 
 void Joueur::majAffiche(){
@@ -88,10 +104,10 @@ void Joueur::payer(Joueur& proprietaire, int montant){
 	proprietaire.gagnerArgent(montant);
 }
 
-//Si le joueur à perdu on lui suprime ses propriétés
+//Si le joueur à perdu on lui supprime ses propriétés
 void Joueur::perdu(){
 	for(std::list<CasePropriete*>::const_iterator it = listCaseJ.begin(); it != listCaseJ.end(); ++it){
-		(*it)->retirerVisiteur(this);
+		(*it)->setProprietaire(NULL);
 		listCaseJ.erase(it);
 	}
 	loose = true;
