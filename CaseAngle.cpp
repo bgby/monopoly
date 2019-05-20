@@ -64,11 +64,16 @@ void CaseAngle::effet(Joueur *j, Gtk::Window *fenetre){
 			break;
 
 		case 'a':
-			j->partEnPrison();
-			j->decrementerTourPrison();
-			dialogue.set_title("Information");
-			dialogue.set_secondary_text("Vous prenez l'ascenseur de Polytech \n Sa lenteur vous fait perdre 1 tour !", false);
-			dialogue.run();
+			if(!(j->estEnPrison())){
+				j->partEnPrison();
+				j->decrementerTourPrison();
+				dialogue.set_title("Information");
+				dialogue.set_secondary_text("Vous prenez l'ascenseur de Polytech \n Sa lenteur vous fait perdre 1 tour !", false);
+				dialogue.run();
+			}
+			else{
+				j->decrementerTourPrison();
+			}
 			break;
 	}
 }
